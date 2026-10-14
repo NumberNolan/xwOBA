@@ -1,0 +1,22 @@
+[2026-09-11 15:31:48] Loading modeling dataset...
+[2026-09-11 15:31:49] Train rows: 316619  Test rows: 79155
+[2026-09-11 15:31:49] === XGBoost: RandomizedSearchCV ===
+[2026-09-11 15:41:19] XGBoost search done in 570.0s
+[2026-09-11 15:41:19] XGBoost best CV RMSE: 0.37643
+[2026-09-11 15:41:19] XGBoost best params: {'colsample_bytree': np.float64(0.8658238776498202), 'gamma': np.float64(0.638448647112328), 'learning_rate': np.float64(0.013916725661203106), 'max_depth': 9, 'min_child_weight': 5, 'n_estimators': 979, 'reg_alpha': np.float64(0.05199673923878321), 'reg_lambda': np.float64(1.008055099993063), 'subsample': np.float64(0.9018171496338729)}
+[2026-09-11 15:41:20] XGBoost TUNED test metrics: {'test_rmse': 0.37546052495900184, 'test_mae': 0.2593066996931909, 'test_r2': 0.5703512241350978, 'test_corr': 0.7557054309390867}
+[2026-09-11 15:41:20] XGBoost prior (untuned) test metrics: {'test_rmse': 0.3792300533900804, 'test_mae': 0.266720574621206, 'test_r2': 0.5616807875899338, 'test_corr': 0.7496588968790765}
+[2026-09-11 15:41:20] === LightGBM: RandomizedSearchCV ===
+[2026-09-11 15:52:54] LightGBM search done in 694.5s
+[2026-09-11 15:52:54] LightGBM best CV RMSE: 0.36719
+[2026-09-11 15:52:54] LightGBM best params: {'colsample_bytree': np.float64(0.9330880728874675), 'learning_rate': np.float64(0.05859268690985102), 'max_depth': 12, 'min_child_samples': 7, 'n_estimators': 861, 'num_leaves': 67, 'reg_alpha': np.float64(7.579479953348009), 'reg_lambda': np.float64(2.1368329072358767), 'subsample': np.float64(0.6849356442713105)}
+[2026-09-11 15:52:58] LightGBM TUNED test metrics: {'test_rmse': 0.36611073499838986, 'test_mae': 0.23923115727846225, 'test_r2': 0.5914831830441142, 'test_corr': 0.7690971832025962}
+[2026-09-11 15:52:58] LightGBM prior (untuned) test metrics: {'test_rmse': 0.372115866449456, 'test_mae': 0.255315141058689, 'test_r2': 0.5779718804070857, 'test_corr': 0.7605248852217769}
+[2026-09-11 15:52:58] === SUMMARY (test RMSE, lower is better) ===
+[2026-09-11 15:52:58]   statcast xwOBA benchmark  : 0.43013
+[2026-09-11 15:52:58]   random_forest (prior best): 0.37210
+[2026-09-11 15:52:58]   xgboost  untuned          : 0.37923
+[2026-09-11 15:52:58]   xgboost  TUNED            : 0.37546
+[2026-09-11 15:52:58]   lightgbm untuned          : 0.37212
+[2026-09-11 15:52:58]   lightgbm TUNED            : 0.36611
+[2026-09-11 15:52:58] DONE.

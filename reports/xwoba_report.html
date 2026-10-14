@@ -1,0 +1,1002 @@
+<title>Beating xwOBA</title>
+<style>
+  :root {
+    --page: #f7f5f0;
+    --surface: #ffffff;
+    --surface-2: #f1efe8;
+    --ink: #16171a;
+    --ink-secondary: #55565c;
+    --ink-muted: #8b8c92;
+    --border: rgba(15,17,20,0.10);
+    --border-strong: rgba(15,17,20,0.18);
+    --accent: #2a78d6;
+    --accent-deep: #184f95;
+    --accent-soft: #cde2fb;
+    --benchmark: #8b8c92;
+    --benchmark-line: #55565c;
+    --good: #0ca30c;
+    --critical: #d03b3b;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --page: #0d0d0d;
+      --surface: #1a1a19;
+      --surface-2: #212120;
+      --ink: #ffffff;
+      --ink-secondary: #c3c2b7;
+      --ink-muted: #898781;
+      --border: rgba(255,255,255,0.10);
+      --border-strong: rgba(255,255,255,0.18);
+      --accent: #3987e5;
+      --accent-deep: #86b6ef;
+      --accent-soft: #184f95;
+      --benchmark: #898781;
+      --benchmark-line: #c3c2b7;
+      --good: #0ca30c;
+      --critical: #e66767;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --surface-2: #212120;
+    --ink: #ffffff;
+    --ink-secondary: #c3c2b7;
+    --ink-muted: #898781;
+    --border: rgba(255,255,255,0.10);
+    --border-strong: rgba(255,255,255,0.18);
+    --accent: #3987e5;
+    --accent-deep: #86b6ef;
+    --accent-soft: #184f95;
+    --benchmark: #898781;
+    --benchmark-line: #c3c2b7;
+    --good: #0ca30c;
+    --critical: #e66767;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.55;
+  }
+  .wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+
+  h1, h2, h3 { font-family: "Libre Franklin", system-ui, sans-serif; text-wrap: balance; margin: 0; }
+  .mono, .num { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace; font-variant-numeric: tabular-nums; }
+
+  header.hero {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--border-strong);
+  }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  h1 {
+    font-size: clamp(32px, 5vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .dek {
+    font-size: 17px;
+    color: var(--ink-secondary);
+    max-width: 62ch;
+  }
+  .dek b { color: var(--ink); font-weight: 600; }
+
+  .headline-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+  .stat-tile {
+    background: var(--surface);
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .stat-tile .value {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 27px;
+    font-weight: 600;
+    color: var(--good);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-tile .label {
+    font-size: 12.5px;
+    color: var(--ink-muted);
+  }
+
+  .part-divider {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin: 8px 0 30px;
+  }
+  .part-divider .part-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--page);
+    background: var(--ink);
+    padding: 4px 10px;
+    border-radius: 999px;
+    flex-shrink: 0;
+  }
+  .part-divider .part-label {
+    font-family: "Libre Franklin", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink-secondary);
+  }
+  .part-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border-strong);
+    align-self: center;
+  }
+
+  section { margin-bottom: 44px; }
+  section > h2 {
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  section > .section-note {
+    font-size: 14.5px;
+    color: var(--ink-secondary);
+    max-width: 66ch;
+    margin-bottom: 20px;
+  }
+
+  /* --- bar chart --- */
+  .chart-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 28px 20px;
+  }
+  .chart-row {
+    display: grid;
+    grid-template-columns: 168px 1fr 88px;
+    align-items: center;
+    gap: 14px;
+    padding: 9px 0;
+    position: relative;
+  }
+  .chart-row + .chart-row { border-top: 1px solid var(--border); }
+  .chart-row .name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .chart-row .name .sub {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 400;
+    color: var(--ink-muted);
+    margin-top: 1px;
+  }
+  .bar-track {
+    position: relative;
+    height: 22px;
+  }
+  .bar-fill {
+    position: absolute;
+    left: 0; top: 3px;
+    height: 16px;
+    border-radius: 0 4px 4px 0;
+    background: var(--accent);
+    cursor: default;
+  }
+  .bar-fill.is-benchmark { background: var(--benchmark); }
+  .bar-fill.is-worse { background: var(--ink-muted); opacity: 0.55; }
+  .bench-line {
+    position: absolute;
+    top: -6px; bottom: -6px;
+    width: 0;
+    border-left: 2px dashed var(--benchmark-line);
+  }
+  .chart-row .rmse-val {
+    font-size: 13.5px;
+    font-weight: 600;
+    text-align: right;
+    color: var(--ink);
+  }
+  .delta-badge {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 999px;
+    margin-top: 2px;
+  }
+  .delta-badge.good { color: var(--good); background: color-mix(in srgb, var(--good) 14%, transparent); }
+  .delta-badge.bad { color: var(--critical); background: color-mix(in srgb, var(--critical) 14%, transparent); }
+  .delta-badge.neutral { color: var(--ink-muted); background: var(--surface-2); }
+
+  .chart-legend {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--ink-secondary);
+  }
+  .chart-legend .item { display: flex; align-items: center; gap: 7px; }
+  .swatch { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
+  .swatch.line { width: 14px; height: 0; border-top: 2px dashed var(--benchmark-line); border-radius: 0; }
+
+  /* --- tooltip --- */
+  .tooltip {
+    position: fixed;
+    pointer-events: none;
+    background: var(--ink);
+    color: var(--page);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    padding: 8px 11px;
+    border-radius: 8px;
+    line-height: 1.5;
+    z-index: 50;
+    opacity: 0;
+    transform: translate(-50%, calc(-100% - 10px));
+    transition: opacity 0.1s ease;
+    white-space: nowrap;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  }
+  .tooltip.visible { opacity: 1; }
+  .tooltip .t-title { font-family: "Source Sans 3", sans-serif; font-weight: 700; margin-bottom: 3px; }
+
+  /* --- table --- */
+  .table-scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; }
+  table { width: 100%; border-collapse: collapse; background: var(--surface); font-size: 13.5px; min-width: 720px; }
+  thead th {
+    text-align: left;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 600;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border-strong);
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--ink-secondary);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr.benchmark-row { background: var(--surface-2); }
+  td.model-name { color: var(--ink); font-weight: 600; font-family: "Source Sans 3", sans-serif; }
+  td.model-name .rank { color: var(--ink-muted); font-weight: 400; font-family: "IBM Plex Mono", monospace; font-size: 11.5px; margin-right: 6px; }
+  td.numcell { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; color: var(--ink); white-space: nowrap; }
+  .feat-chips { display: flex; flex-wrap: wrap; gap: 4px; max-width: 260px; }
+  .chip {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--ink-secondary);
+    white-space: nowrap;
+  }
+
+  /* --- feature frequency --- */
+  .freq-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+  }
+  .freq-row {
+    display: grid;
+    grid-template-columns: 170px 1fr 46px;
+    align-items: center;
+    gap: 12px;
+    padding: 7px 0;
+  }
+  .freq-row .fname { font-size: 13.5px; color: var(--ink); font-weight: 500; }
+  .freq-track { height: 10px; background: var(--surface-2); border-radius: 5px; overflow: hidden; }
+  .freq-fill { height: 100%; border-radius: 5px; background: var(--accent); }
+  .freq-row .fcount { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; text-align: right; color: var(--ink-secondary); }
+
+  .callout {
+    background: var(--surface-2);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    font-size: 14px;
+    color: var(--ink-secondary);
+    margin-top: 18px;
+  }
+  .callout b { color: var(--ink); }
+
+  footer {
+    border-top: 1px solid var(--border-strong);
+    padding-top: 24px;
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  footer h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-secondary); margin-bottom: 10px; font-weight: 700; }
+  footer ul { margin: 0; padding-left: 18px; }
+  footer li { margin-bottom: 6px; }
+  footer code { font-family: "IBM Plex Mono", monospace; font-size: 12px; background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+
+  @media (max-width: 620px) {
+    .headline-stats { grid-template-columns: 1fr; }
+    .chart-row { grid-template-columns: 110px 1fr 72px; }
+    .chart-row .name { font-size: 12.5px; }
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700;800;900&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Statcast &middot; custom expected-wOBA model</div>
+    <h1>Beating xwOBA</h1>
+    <p class="dek">
+      Nine model families, each run through forward and backward stepwise feature
+      selection over nine bat-tracking &amp; batted-ball candidates, trained on
+      <b>395,774</b> wOBA-eligible batted balls (2023 &ndash; 2026) and scored on a held-out
+      <b>79,155</b>-row test set against Statcast&rsquo;s own
+      <span class="mono">estimated_woba_using_speedangle</span>.
+    </p>
+    <div class="headline-stats">
+      <div class="stat-tile">
+        <div class="value">&minus;14.9%</div>
+        <div class="label">RMSE vs. Statcast xwOBA (best model: LightGBM, tuned)</div>
+      </div>
+      <div class="stat-tile">
+        <div class="value">0.591</div>
+        <div class="label">R&sup2; achieved vs. 0.436 for Statcast&rsquo;s own model</div>
+      </div>
+      <div class="stat-tile">
+        <div class="value">5 / 9</div>
+        <div class="label">model families beat the Statcast benchmark outright</div>
+      </div>
+    </div>
+    <p style="font-size:13.5px; color:var(--ink-muted); margin:2px 0 0;">
+      Fits this season&rsquo;s outcomes better &mdash; but is it more predictive of next season?
+      See <a href="#stability" style="color:var(--accent); font-weight:600; text-decoration:none;">stability check</a> below.
+    </p>
+  </header>
+
+  <div class="part-divider">
+    <span class="part-num">Part 1</span>
+    <span class="part-label">Explanatory &mdash; fitting this season&rsquo;s outcomes</span>
+  </div>
+
+  <section>
+    <h2>Test-set error by model</h2>
+    <p class="section-note">
+      Root-mean-squared error against actual outcome value (<span class="mono">woba_value</span>),
+      lower is better. The dashed line marks Statcast&rsquo;s own xwOBA &mdash; bars ending left of
+      it beat the benchmark, bars ending right of it don&rsquo;t. XGBoost, LightGBM and Random
+      Forest shown here are hyperparameter-tuned (randomized search, 5-fold CV); regularized
+      linear variants (Ridge / Lasso / ElasticNet) converged within 0.0001 RMSE of plain OLS and
+      are grouped into one bar for legibility.
+    </p>
+    <div class="chart-card">
+      <div id="chart"></div>
+      <div class="chart-legend">
+        <div class="item"><span class="swatch" style="background:var(--accent)"></span> Candidate model</div>
+        <div class="item"><span class="swatch is-worse" style="background:var(--ink-muted);opacity:.55"></span> Underperformed benchmark</div>
+        <div class="item"><span class="swatch" style="background:var(--benchmark)"></span> Statcast xwOBA (benchmark)</div>
+        <div class="item"><span class="swatch line"></span> Benchmark RMSE (0.430)</div>
+      </div>
+    </div>
+    <div class="callout">
+      <b>Why the linear models lost to Statcast&rsquo;s own xwOBA:</b> wOBA outcome value is a
+      sharply nonlinear function of contact quality &mdash; a 30&deg; launch angle at 100&nbsp;mph
+      is a home run, a 60&deg; launch angle at 100&nbsp;mph is a routine popup. A straight-line fit
+      can&rsquo;t represent that, no matter which features or how much regularization it&rsquo;s given.
+      Tree ensembles and the neural net capture the interaction directly.
+    </div>
+    <div class="callout">
+      <b>Tuning moved LightGBM into first place, and it held there.</b> Untuned, LightGBM and
+      Random Forest were in a virtual tie (0.3721 vs 0.3721 RMSE). A randomized hyperparameter
+      search pulled LightGBM to 0.3661 (deeper trees, a slower learning rate over more rounds,
+      heavier regularization) and Random Forest to 0.3684 (depth 20, min-leaf 8, 302 trees each
+      seeing ~60% of the features and ~98% of the rows) &mdash; both improved, but the gap between
+      them barely moved. XGBoost also improved (0.3792 &rarr; 0.3755) and remains third. Full
+      best-parameter listings are in the methodology notes below.
+    </div>
+  </section>
+
+  <section>
+    <h2>Full results</h2>
+    <p class="section-note">Selected feature set is whichever of the forward or backward stepwise path scored the lower cross-validated RMSE on a 50,000-row search sample; each model was then refit on the full training set. XGBoost, LightGBM and Random Forest ranks reflect their tuned versions; the untuned versions are included at the bottom, unranked, for reference.</p>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>RMSE</th>
+            <th>MAE</th>
+            <th>R&sup2;</th>
+            <th>Corr.</th>
+            <th># feat.</th>
+            <th>Selected features</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Which features earned their place</h2>
+    <p class="section-note">
+      Share of the 9 model families that kept each feature in its final selected set.
+      Exit velocity, launch angle and spray angle were selected by <b>every single model</b> &mdash;
+      the rest is where bat-tracking data does or doesn&rsquo;t add value.
+    </p>
+    <div class="freq-card" id="freq-chart"></div>
+    <div class="callout">
+      <b>attack_angle never made the cut</b> &mdash; 0 of 9 models kept it once exit velo,
+      launch angle and spray angle were already in the model. <span class="mono">bat_speed</span>
+      and <span class="mono">swing_length</span> fared little better (5/9 and 4/9, both driven
+      almost entirely by the weaker linear-family runs). The one bat-tracking metric with real
+      staying power in the strongest models is <span class="mono">swing_path_tilt</span> (7/9),
+      and to a lesser extent batter handedness (<span class="mono">stand</span>, 4/9) &mdash;
+      both act as proxies for spray tendencies that the ball-flight features alone don&rsquo;t
+      fully capture.
+    </div>
+  </section>
+
+  <section id="stability">
+    <h2>Does the improvement hold up next year?</h2>
+    <p class="section-note">
+      Fitting this season better doesn&rsquo;t automatically mean predicting talent better.
+      For every batter who qualified (&ge;100 batted balls) in two consecutive seasons across
+      2023&ndash;2026, this correlates their metric in season N against the <b>same metric, same
+      batter, season N+1</b> &mdash; 799 batter-transitions pooled across three season-pairs. A
+      metric that carries more true skill and less season-specific noise should correlate more
+      strongly with itself a year later.
+    </p>
+    <div class="chart-card">
+      <div id="stability-chart"></div>
+      <div class="chart-legend">
+        <div class="item"><span class="swatch" style="background:var(--benchmark)"></span> Statcast xwOBAcon</div>
+        <div class="item"><span class="swatch" style="background:var(--accent)"></span> Custom xwOBAcon (tuned LightGBM)</div>
+        <div class="item"><span class="swatch is-worse" style="background:var(--ink-muted);opacity:.55"></span> Actual wOBA on contact (no model)</div>
+      </div>
+    </div>
+    <div class="callout">
+      <b>Statcast&rsquo;s simpler model turns out to be the more stable one.</b> Its two-feature
+      xwOBAcon correlates year-to-year at r&nbsp;=&nbsp;0.748 (r&sup2;&nbsp;=&nbsp;0.559) &mdash;
+      noticeably stickier than our five-feature tuned LightGBM at r&nbsp;=&nbsp;0.640
+      (r&sup2;&nbsp;=&nbsp;0.410), despite the custom model fitting the &ldquo;beat xwOBA&rdquo;
+      test above better. The likely explanation: <span class="mono">swing_path_tilt</span> and
+      <span class="mono">stand</span> earned their place in stepwise selection by explaining
+      real variance <i>within</i> a season, but some of what they capture &mdash; a hot streak&rsquo;s
+      particular batted-ball shapes, a small-sample swing tendency &mdash; doesn&rsquo;t persist
+      the way raw exit velocity and launch angle do. Both expected-stat versions comfortably
+      beat the actual, unmodeled outcome (r&nbsp;=&nbsp;0.485), confirming that modeling contact
+      quality at all filters out real luck &mdash; the open question is just which model
+      over-fits the current season the least. Which metric to prefer depends on the job: for
+      describing what already happened, the custom model wins; for projecting a hitter forward,
+      Statcast&rsquo;s xwOBAcon is the safer bet as-is.
+    </div>
+    <div class="table-scroll" style="margin-top:18px;">
+      <table>
+        <thead>
+          <tr>
+            <th>Season pair</th>
+            <th>n batters</th>
+            <th>Statcast r</th>
+            <th>Custom r</th>
+            <th>Actual r</th>
+          </tr>
+        </thead>
+        <tbody id="stability-table-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="part-divider">
+    <span class="part-num">Part 2</span>
+    <span class="part-label">Predictive &mdash; forecasting next season</span>
+  </div>
+
+  <section>
+    <h2>A model built to project, not describe</h2>
+    <p class="section-note">
+      Same 9 candidate features, same 9 model families, same forward/backward stepwise
+      selection &mdash; but now at the <b>batter-season</b> level, not the pitch level.
+      Each row is one batter&rsquo;s season-N averages of the 9 features; the target is that
+      same batter&rsquo;s <b>actual wOBA-on-contact in season N+1</b>. Trained on the 511
+      qualified batter-transitions from 2023&rarr;2024 and 2024&rarr;2025, tested on the
+      chronologically later, fully held-out 2025&rarr;2026 transition (288 batters) &mdash; a
+      forecasting test, not a random split. The benchmark: how well does Statcast&rsquo;s own
+      <i>current</i>-season xwOBAcon predict a batter&rsquo;s <i>next</i>-season actual output,
+      with no model at all?
+    </p>
+    <div class="headline-stats">
+      <div class="stat-tile">
+        <div class="value">&minus;12.0%</div>
+        <div class="label">RMSE vs. naive Statcast projection (best model: XGBoost, tuned)</div>
+      </div>
+      <div class="stat-tile">
+        <div class="value">0.399</div>
+        <div class="label">R&sup2; achieved vs. 0.225 for Statcast xwOBAcon used naively</div>
+      </div>
+      <div class="stat-tile">
+        <div class="value">8 / 9</div>
+        <div class="label">model families beat it outright &mdash; the 9th (neural net) ties it</div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:18px;">
+      <b>Why this R&sup2; looks so different from the 0.559 in the stability check above:</b> that
+      number measured Statcast&rsquo;s xwOBAcon correlating with <i>itself</i> a year later
+      (r&nbsp;=&nbsp;0.748) &mdash; a test of the metric&rsquo;s internal consistency. This section
+      measures something stricter and more useful: whether it predicts <i>actual</i> future
+      outcomes. Two things change at once, not one: the comparison target (itself vs. real
+      results) and the statistic (plain correlation vs. R&sup2;, which &mdash; unlike correlation
+      &mdash; also penalizes using xwOBAcon&rsquo;s raw value as a stand-in for actual wOBA without
+      rescaling it; that scale mismatch alone knocks Statcast&rsquo;s R&sup2; here down to 0.225
+      even though its correlation with next season&rsquo;s actual output is a respectable
+      r&nbsp;=&nbsp;0.595, r&sup2;&nbsp;=&nbsp;0.354). The models below are fit specifically to
+      minimize that R&sup2;, so for them R&sup2; and corr&sup2; stay close together &mdash; it&rsquo;s
+      only the raw, non-recalibrated benchmarks where the two diverge this much.
+    </div>
+  </section>
+
+  <section>
+    <h2>Test-set error predicting next season&rsquo;s actual output</h2>
+    <p class="section-note">
+      RMSE against each batter&rsquo;s actual 2025&ndash;2026 wOBAcon, lower is better. Linear /
+      Ridge / Lasso / ElasticNet again converged to within 0.0001 RMSE of each other and are
+      grouped. The two benchmark bars use no model at all &mdash; just last season&rsquo;s number,
+      as-is, as this season&rsquo;s forecast. XGBoost shown here is hyperparameter-tuned
+      (RandomizedSearchCV, 3,000 configs &times; 10-fold CV); the other 8 stayed at their
+      untuned, stepwise-selected settings.
+    </p>
+    <div class="chart-card">
+      <div id="pred-chart"></div>
+      <div class="chart-legend">
+        <div class="item"><span class="swatch" style="background:var(--accent)"></span> Candidate model</div>
+        <div class="item"><span class="swatch" style="background:var(--benchmark)"></span> Statcast xwOBAcon, used naively</div>
+        <div class="item"><span class="swatch is-worse" style="background:var(--ink-muted);opacity:.55"></span> Explanatory custom xwOBAcon, used naively</div>
+        <div class="item"><span class="swatch line"></span> Statcast naive-projection RMSE (0.0477)</div>
+      </div>
+    </div>
+    <div class="callout">
+      <b>The Part 1 model, used naively, is a worse forecaster than Statcast&rsquo;s own metric</b>
+      (RMSE 0.0503 vs. 0.0477) &mdash; confirming the stability check from Part 1: a model tuned to
+      explain this season&rsquo;s outcomes isn&rsquo;t automatically good at forecasting next
+      season&rsquo;s. It takes a model trained specifically for that job, on the right features,
+      to actually improve on Statcast&rsquo;s projection.
+    </div>
+  </section>
+
+  <section>
+    <h2>Same features, a completely different pecking order</h2>
+    <p class="section-note">
+      Share of the 9 models that kept each feature &mdash; explanatory (Part 1, predicting this
+      season&rsquo;s outcome) vs. predictive (Part 2, forecasting next season). Ball-flight
+      results and swing-mechanics inputs trade places almost completely.
+    </p>
+    <div class="freq-card" id="freq-compare-chart"></div>
+    <div class="callout">
+      <b>Bat speed and attack direction are the story.</b> Barely useful for explaining a single
+      batted ball once its exit velocity and launch angle are known (Part 1: 5/9 and 4/9), they
+      become the two most load-bearing features for forecasting a hitter&rsquo;s <i>next</i>
+      season (8/9 each) &mdash; second only to exit velocity itself, which matters in both
+      framings. The read: swing mechanics are a stable physical skill that persists year to year,
+      while the exact launch angle or spray angle of this season&rsquo;s batted balls is closer
+      to in-the-moment noise &mdash; highly informative about what already happened, far less
+      informative about what happens next. <span class="mono">spray_angle</span>,
+      <span class="mono">swing_length</span> and <span class="mono">attack_angle</span> failed to
+      earn a place in either framing.
+    </div>
+  </section>
+
+  <section>
+    <h2>Full predictive results</h2>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>RMSE</th>
+            <th>MAE</th>
+            <th>R&sup2;</th>
+            <th>Corr.</th>
+            <th># feat.</th>
+            <th>Selected features (season-N means)</th>
+          </tr>
+        </thead>
+        <tbody id="pred-table-body"></tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <b>Tuning XGBoost was worth a dedicated pass.</b> Stepwise selection&rsquo;s own untuned
+      pick used <span class="mono">stand_L_mean</span> as its fourth feature (RMSE 0.0421); swapping
+      in <span class="mono">launch_angle_mean</span> instead and running a 150-config search
+      actually made it worse (RMSE 0.0452) &mdash; looked at first like the swap was a bad idea.
+      Widening that search to 3,000 configs over a broader hyperparameter range found a
+      materially different region entirely (<code>max_depth=4, n_estimators=578,
+      learning_rate=0.032, reg_lambda=4.36</code>) and came back at RMSE 0.0420 &mdash; edging out
+      the original after all. The lesson isn&rsquo;t that one feature set beats the other; it&rsquo;s
+      that 150 configs weren&rsquo;t enough to tell. The other 8 models in this table haven&rsquo;t
+      had the same tuning treatment, so some of these rankings would likely move with it.
+    </div>
+  </section>
+
+  <footer>
+    <h3>Methodology notes</h3>
+    <ul>
+      <li>Source: <code>baseballr::statcast_search()</code>, pulled day-by-day for every date with bat-tracking data (avoids Baseball Savant&rsquo;s 25,000-row/query truncation), 2023-07-14 through 2026-09-09.</li>
+      <li>Scope: rows with <code>type == "X"</code> (ball in play) and <code>woba_denom == 1</code> (excludes sac bunts etc.), matching how Statcast itself scopes wOBA/xwOBA.</li>
+      <li><code>spray_angle</code> derived from hit coordinates: <code>atan((hc_x&minus;125.42)/(198.27&minus;hc_y)) &times; 180/&pi; &times; 0.75</code>.</li>
+      <li>80/20 train/test split, fixed seed. Stepwise search used a 50,000-row training subsample with 3-fold CV and lighter hyperparameters; final models were refit on the full 316,619-row training set with more thorough hyperparameters.</li>
+      <li>Single random train/test split rather than a time-based one &mdash; results reflect a general fit, not out-of-season forecasting.</li>
+    </ul>
+
+    <h3 style="margin-top:20px;">Part 2 (predictive) specifics</h3>
+    <ul>
+      <li>Unit of analysis: one row per batter per season-transition (batter-season-N features &rarr; batter-season-N+1 actual outcome), not one row per pitch. Same &ge;100-BBE-in-both-seasons qualifying threshold as the Part 1 stability check, so sample sizes match exactly (215 / 296 / 288).</li>
+      <li>Temporal (not random) train/test split: train on 2023&rarr;2024 + 2024&rarr;2025 (511 rows), test on the held-out, later 2025&rarr;2026 transition (288 rows) &mdash; a genuine forecasting evaluation.</li>
+      <li>Hyperparameters are deliberately shallow/regularized throughout (e.g. XGBoost/LightGBM max depth 2&ndash;3, Random Forest max depth 4) &mdash; roughly 400 training rows per CV fold can&rsquo;t support the same tree depth as the 300k-row Part 1 models without badly overfitting. Not separately hyperparameter-tuned beyond that.</li>
+      <li>Both benchmarks use no model at all &mdash; just that season&rsquo;s already-published number carried forward as next season&rsquo;s forecast.</li>
+      <li><b>XGBoost is the exception to &ldquo;not separately tuned&rdquo;</b>: RandomizedSearchCV, 3,000 configs &times; 10-fold CV, on the feature set <code>bat_speed_mean, attack_direction_mean, launch_speed_mean, launch_angle_mean</code>. Best config: <code>n_estimators=578, max_depth=4, learning_rate=0.0322, subsample=0.597, colsample_bytree=0.604, min_child_weight=2, gamma=0.016, reg_alpha=0.0093, reg_lambda=4.356</code> (CV RMSE 0.0437 &rarr; test RMSE 0.0420).</li>
+    </ul>
+
+    <h3 style="margin-top:20px;">Tuned hyperparameters (XGBoost, LightGBM &amp; Random Forest &mdash; Part 1)</h3>
+    <p style="margin:0 0 10px;">RandomizedSearchCV, 5-fold CV scored on RMSE (60 iterations for the boosted models, 40 for Random Forest &mdash; its fits are markedly slower per tree), same train/test split and stepwise-selected feature sets as above.</p>
+    <ul>
+      <li><b>XGBoost</b> (CV RMSE 0.3764 &rarr; test RMSE 0.3755): <code>n_estimators=979, max_depth=9, learning_rate=0.0139, subsample=0.902, colsample_bytree=0.866, min_child_weight=5, gamma=0.638, reg_alpha=0.052, reg_lambda=1.008</code></li>
+      <li><b>LightGBM</b> (CV RMSE 0.3672 &rarr; test RMSE 0.3661): <code>n_estimators=861, num_leaves=67, max_depth=12, learning_rate=0.0586, subsample=0.685, colsample_bytree=0.933, min_child_samples=7, reg_alpha=7.579, reg_lambda=2.137</code></li>
+      <li><b>Random Forest</b> (CV RMSE 0.3695 &rarr; test RMSE 0.3684): <code>n_estimators=302, max_depth=20, min_samples_split=22, min_samples_leaf=8, max_features=0.6, max_samples=0.975, bootstrap=True</code></li>
+    </ul>
+  </footer>
+
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+const results = [
+  {key:"lightgbm", name:"LightGBM", sub:"tuned &middot; 5 feat.", rmse:0.36611, mae:0.23923, r2:0.59148, corr:0.76910, n:5, feats:["launch_speed","launch_angle","spray_angle","stand_L","swing_path_tilt"], type:"model"},
+  {key:"random_forest", name:"Random Forest", sub:"tuned &middot; 5 feat.", rmse:0.36844, mae:0.23991, r2:0.58626, corr:0.76571, n:5, feats:["launch_speed","launch_angle","spray_angle","stand_L","swing_path_tilt"], type:"model"},
+  {key:"xgboost", name:"XGBoost", sub:"tuned &middot; 4 feat.", rmse:0.37546, mae:0.25931, r2:0.57035, corr:0.75571, n:4, feats:["launch_speed","launch_angle","spray_angle","stand_L"], type:"model"},
+  {key:"catboost", name:"CatBoost", sub:"forward &middot; 4 feat.", rmse:0.37964, mae:0.26869, r2:0.56072, corr:0.74916, n:4, feats:["launch_angle","launch_speed","spray_angle","stand_L"], type:"model"},
+  {key:"neural_net", name:"Neural Net", sub:"backward &middot; 5 feat.", rmse:0.38362, mae:0.26923, r2:0.55148, corr:0.74291, n:5, feats:["launch_speed","launch_angle","spray_angle","bat_speed","swing_path_tilt"], type:"model"},
+  {key:"benchmark", name:"Statcast xwOBA", sub:"benchmark &middot; 2 feat.", rmse:0.43013, mae:0.30153, r2:0.43611, corr:0.66048, n:2, feats:["launch_speed","launch_angle"], type:"benchmark"},
+  {key:"linear", name:"Linear / Ridge / Lasso / ElasticNet", sub:"forward &middot; 7 feat.", rmse:0.54555, mae:0.46423, r2:0.09291, corr:0.30484, n:7, feats:["launch_speed","launch_angle","spray_angle","bat_speed","swing_length","attack_direction","swing_path_tilt"], type:"worse"},
+];
+
+const fullTable = [
+  {rank:1, name:"LightGBM (tuned)", rmse:0.36611, mae:0.23923, r2:0.59148, corr:0.76910, n:5, feats:["launch_speed","launch_angle","spray_angle","stand_L","swing_path_tilt"], bench:false},
+  {rank:2, name:"Random Forest (tuned)", rmse:0.36844, mae:0.23991, r2:0.58626, corr:0.76571, n:5, feats:["launch_speed","launch_angle","spray_angle","stand_L","swing_path_tilt"], bench:false},
+  {rank:3, name:"XGBoost (tuned)", rmse:0.37546, mae:0.25931, r2:0.57035, corr:0.75571, n:4, feats:["launch_speed","launch_angle","spray_angle","stand_L"], bench:false},
+  {rank:4, name:"CatBoost", rmse:0.37964, mae:0.26869, r2:0.56072, corr:0.74916, n:4, feats:["launch_angle","launch_speed","spray_angle","stand_L"], bench:false},
+  {rank:5, name:"Neural Net (MLP)", rmse:0.38362, mae:0.26923, r2:0.55148, corr:0.74291, n:5, feats:["launch_speed","launch_angle","spray_angle","bat_speed","swing_path_tilt"], bench:false},
+  {rank:6, name:"Statcast xwOBA", rmse:0.43013, mae:0.30153, r2:0.43611, corr:0.66048, n:2, feats:["launch_speed","launch_angle"], bench:true},
+  {rank:7, name:"Linear Regression", rmse:0.54555, mae:0.46423, r2:0.09291, corr:0.30484, n:7, feats:["launch_speed","swing_path_tilt","bat_speed","launch_angle","spray_angle","swing_length","attack_direction"], bench:false},
+  {rank:8, name:"Lasso", rmse:0.54555, mae:0.46437, r2:0.09292, corr:0.30483, n:7, feats:["launch_speed","swing_path_tilt","bat_speed","launch_angle","spray_angle","swing_length","attack_direction"], bench:false},
+  {rank:9, name:"Ridge", rmse:0.54555, mae:0.46423, r2:0.09291, corr:0.30484, n:7, feats:["launch_speed","swing_path_tilt","bat_speed","launch_angle","spray_angle","swing_length","attack_direction"], bench:false},
+  {rank:10, name:"ElasticNet", rmse:0.54555, mae:0.46437, r2:0.09292, corr:0.30483, n:7, feats:["launch_speed","swing_path_tilt","bat_speed","launch_angle","spray_angle","swing_length","attack_direction"], bench:false},
+  {rank:"", name:"XGBoost (untuned)", rmse:0.37923, mae:0.26672, r2:0.56168, corr:0.74966, n:4, feats:["launch_speed","launch_angle","spray_angle","stand_L"], bench:false},
+  {rank:"", name:"LightGBM (untuned)", rmse:0.37212, mae:0.25532, r2:0.57797, corr:0.76052, n:5, feats:["launch_speed","launch_angle","spray_angle","stand_L","swing_path_tilt"], bench:false},
+  {rank:"", name:"Random Forest (untuned)", rmse:0.37210, mae:0.23587, r2:0.57801, corr:0.76056, n:5, feats:["launch_speed","launch_angle","spray_angle","stand_L","swing_path_tilt"], bench:false},
+];
+
+const stability = [
+  {name:"Statcast xwOBAcon", r:0.7480, r2:0.5594, type:"benchmark"},
+  {name:"Custom xwOBAcon (tuned LightGBM)", r:0.6404, r2:0.4101, type:"model"},
+  {name:"Actual wOBA on contact", r:0.4853, r2:0.2355, type:"worse"},
+];
+
+const stabilityByPair = [
+  {pair:"2023 &rarr; 2024", n:215, statcast:0.7261, custom:0.6080, actual:0.4247},
+  {pair:"2024 &rarr; 2025", n:296, statcast:0.7614, custom:0.6779, actual:0.5514},
+  {pair:"2025 &rarr; 2026", n:288, statcast:0.7515, custom:0.6691, actual:0.4902},
+  {pair:"Pooled (all pairs)", n:799, statcast:0.7480, custom:0.6404, actual:0.4853},
+];
+
+const featureFreq = [
+  {name:"launch_speed", count:9},
+  {name:"launch_angle", count:9},
+  {name:"spray_angle", count:9},
+  {name:"swing_path_tilt", count:7},
+  {name:"bat_speed", count:5},
+  {name:"swing_length", count:4},
+  {name:"attack_direction", count:4},
+  {name:"stand", count:4},
+  {name:"attack_angle", count:0},
+];
+
+// --- Part 2: predictive model ---
+const predResults = [
+  {key:"xgboost", name:"XGBoost", sub:"tuned &middot; 4 feat.", rmse:0.04196, mae:0.03350, r2:0.39931, corr:0.63670, n:4, type:"model"},
+  {key:"catboost", name:"CatBoost", sub:"forward &middot; 4 feat.", rmse:0.04247, mae:0.03365, r2:0.38485, corr:0.62478, n:4, type:"model"},
+  {key:"random_forest", name:"Random Forest", sub:"forward &middot; 5 feat.", rmse:0.04256, mae:0.03394, r2:0.38227, corr:0.62404, n:5, type:"model"},
+  {key:"lightgbm", name:"LightGBM", sub:"backward &middot; 5 feat.", rmse:0.04289, mae:0.03408, r2:0.37240, corr:0.61740, n:5, type:"model"},
+  {key:"linear", name:"Linear / Ridge / Lasso / ElasticNet", sub:"forward &middot; 5 feat.", rmse:0.04352, mae:0.03542, r2:0.35413, corr:0.60184, n:5, type:"model"},
+  {key:"neural_net", name:"Neural Net", sub:"forward &middot; 1 feat.", rmse:0.04758, mae:0.03743, r2:0.22787, corr:0.51240, n:1, type:"model"},
+  {key:"statcast_naive", name:"Statcast xwOBAcon (naive)", sub:"benchmark &middot; 1 feat.", rmse:0.04767, mae:0.03856, r2:0.22487, corr:0.59548, n:1, type:"benchmark"},
+  {key:"custom_naive", name:"Explanatory custom xwOBAcon (naive)", sub:"benchmark &middot; 1 feat.", rmse:0.05033, mae:0.04022, r2:0.13602, corr:0.55741, n:1, type:"worse"},
+];
+
+const predFullTable = [
+  {rank:1, name:"XGBoost (tuned)", rmse:0.04196, mae:0.03350, r2:0.39931, corr:0.63670, n:4, feats:["bat_speed_mean","attack_direction_mean","launch_speed_mean","launch_angle_mean"]},
+  {rank:2, name:"CatBoost", rmse:0.04247, mae:0.03365, r2:0.38485, corr:0.62478, n:4, feats:["bat_speed_mean","attack_direction_mean","launch_speed_mean","launch_angle_mean"]},
+  {rank:3, name:"Random Forest", rmse:0.04256, mae:0.03394, r2:0.38227, corr:0.62404, n:5, feats:["bat_speed_mean","attack_direction_mean","launch_speed_mean","launch_angle_mean","swing_path_tilt_mean"]},
+  {rank:4, name:"LightGBM", rmse:0.04289, mae:0.03408, r2:0.37240, corr:0.61740, n:5, feats:["launch_speed_mean","launch_angle_mean","bat_speed_mean","attack_direction_mean","swing_path_tilt_mean"]},
+  {rank:5, name:"Lasso", rmse:0.04348, mae:0.03539, r2:0.35524, corr:0.60173, n:5, feats:["bat_speed_mean","attack_direction_mean","launch_speed_mean","stand_L_mean","swing_path_tilt_mean"]},
+  {rank:6, name:"ElasticNet", rmse:0.04348, mae:0.03540, r2:0.35528, corr:0.60168, n:5, feats:["bat_speed_mean","attack_direction_mean","launch_speed_mean","stand_L_mean","swing_path_tilt_mean"]},
+  {rank:7, name:"Ridge", rmse:0.04354, mae:0.03544, r2:0.35344, corr:0.60185, n:5, feats:["bat_speed_mean","attack_direction_mean","launch_speed_mean","stand_L_mean","swing_path_tilt_mean"]},
+  {rank:8, name:"Linear Regression", rmse:0.04357, mae:0.03544, r2:0.35256, corr:0.60210, n:5, feats:["bat_speed_mean","attack_direction_mean","launch_speed_mean","stand_L_mean","swing_path_tilt_mean"]},
+  {rank:9, name:"Neural Net (MLP)", rmse:0.04758, mae:0.03743, r2:0.22787, corr:0.51240, n:1, feats:["launch_speed_mean"]},
+  {rank:10, name:"Statcast xwOBAcon (naive, no model)", rmse:0.04767, mae:0.03856, r2:0.22487, corr:0.59548, n:1, feats:["statcast_xwobacon"]},
+  {rank:11, name:"Explanatory custom xwOBAcon (naive, no model)", rmse:0.05033, mae:0.04022, r2:0.13602, corr:0.55741, n:1, feats:["custom_xwobacon"]},
+  {rank:"", name:"XGBoost (untuned, stepwise-selected)", rmse:0.04214, mae:0.03359, r2:0.39419, corr:0.63520, n:4, feats:["bat_speed_mean","launch_speed_mean","attack_direction_mean","stand_L_mean"]},
+];
+
+const featureFreqCompare = [
+  {name:"launch_speed", explanatory:9, predictive:9},
+  {name:"bat_speed", explanatory:5, predictive:8},
+  {name:"attack_direction", explanatory:4, predictive:8},
+  {name:"swing_path_tilt", explanatory:7, predictive:6},
+  {name:"stand", explanatory:4, predictive:5},
+  {name:"launch_angle", explanatory:9, predictive:3},
+  {name:"spray_angle", explanatory:9, predictive:0},
+  {name:"swing_length", explanatory:4, predictive:0},
+  {name:"attack_angle", explanatory:0, predictive:0},
+];
+
+const BENCH_RMSE = 0.43013;
+const MAX_RMSE = Math.max(...results.map(r => r.rmse));
+
+function pct(r) {
+  return ((BENCH_RMSE - r) / BENCH_RMSE) * 100;
+}
+
+// --- render bar chart ---
+const chart = document.getElementById("chart");
+const tooltip = document.getElementById("tooltip");
+
+results.forEach(r => {
+  const row = document.createElement("div");
+  row.className = "chart-row";
+
+  const widthPct = (r.rmse / MAX_RMSE) * 100;
+  const benchLeftPct = (BENCH_RMSE / MAX_RMSE) * 100;
+
+  const delta = pct(r.rmse);
+  let badgeHtml = "";
+  if (r.type === "model") {
+    badgeHtml = `<span class="delta-badge good">&minus;${delta.toFixed(1)}% err</span>`;
+  } else if (r.type === "worse") {
+    badgeHtml = `<span class="delta-badge bad">+${Math.abs(delta).toFixed(1)}% err</span>`;
+  } else {
+    badgeHtml = `<span class="delta-badge neutral">benchmark</span>`;
+  }
+
+  const barClass = r.type === "benchmark" ? "is-benchmark" : (r.type === "worse" ? "is-worse" : "");
+
+  row.innerHTML = `
+    <div class="name">${r.name}<span class="sub">${r.sub}</span></div>
+    <div class="bar-track">
+      <div class="bench-line" style="left:${benchLeftPct}%"></div>
+      <div class="bar-fill ${barClass}" style="width:${widthPct}%" data-key="${r.key}"></div>
+    </div>
+    <div class="rmse-val">${r.rmse.toFixed(3)}<br/>${badgeHtml}</div>
+  `;
+  chart.appendChild(row);
+
+  const bar = row.querySelector(".bar-fill");
+  bar.addEventListener("mousemove", (e) => {
+    tooltip.innerHTML = `<div class="t-title">${r.name}</div>` +
+      `RMSE ${r.rmse.toFixed(4)}<br/>R&sup2; ${r.r2.toFixed(3)} &middot; corr ${r.corr.toFixed(3)}<br/>${r.n} features`;
+    tooltip.style.left = e.clientX + "px";
+    tooltip.style.top = e.clientY + "px";
+    tooltip.classList.add("visible");
+  });
+  bar.addEventListener("mouseleave", () => tooltip.classList.remove("visible"));
+});
+
+// --- render full table ---
+const tbody = document.getElementById("table-body");
+fullTable.forEach(r => {
+  const tr = document.createElement("tr");
+  if (r.bench) tr.className = "benchmark-row";
+  const chips = r.feats.map(f => `<span class="chip">${f}</span>`).join("");
+  const rankLabel = r.rank === "" ? "&ndash;" : String(r.rank).padStart(2,"0");
+  tr.innerHTML = `
+    <td class="model-name"><span class="rank">${rankLabel}</span>${r.name}</td>
+    <td class="numcell">${r.rmse.toFixed(4)}</td>
+    <td class="numcell">${r.mae.toFixed(4)}</td>
+    <td class="numcell">${r.r2.toFixed(4)}</td>
+    <td class="numcell">${r.corr.toFixed(4)}</td>
+    <td class="numcell">${r.n}</td>
+    <td><div class="feat-chips">${chips}</div></td>
+  `;
+  tbody.appendChild(tr);
+});
+
+// --- render stability chart ---
+const stabilityChart = document.getElementById("stability-chart");
+const MAX_R = Math.max(...stability.map(s => s.r));
+stability.forEach(s => {
+  const row = document.createElement("div");
+  row.className = "chart-row";
+  const widthPct = (s.r / MAX_R) * 100;
+  const barClass = s.type === "benchmark" ? "is-benchmark" : (s.type === "worse" ? "is-worse" : "");
+  row.innerHTML = `
+    <div class="name">${s.name}</div>
+    <div class="bar-track">
+      <div class="bar-fill ${barClass}" style="width:${widthPct}%"></div>
+    </div>
+    <div class="rmse-val">r=${s.r.toFixed(3)}<br/><span class="delta-badge neutral">r&sup2;=${s.r2.toFixed(3)}</span></div>
+  `;
+  stabilityChart.appendChild(row);
+
+  const bar = row.querySelector(".bar-fill");
+  bar.addEventListener("mousemove", (e) => {
+    tooltip.innerHTML = `<div class="t-title">${s.name}</div>Year-over-year r ${s.r.toFixed(4)}<br/>r&sup2; ${s.r2.toFixed(4)}`;
+    tooltip.style.left = e.clientX + "px";
+    tooltip.style.top = e.clientY + "px";
+    tooltip.classList.add("visible");
+  });
+  bar.addEventListener("mouseleave", () => tooltip.classList.remove("visible"));
+});
+
+// --- render stability-by-pair table ---
+const stabilityTbody = document.getElementById("stability-table-body");
+stabilityByPair.forEach(row => {
+  const tr = document.createElement("tr");
+  if (row.pair.startsWith("Pooled")) tr.className = "benchmark-row";
+  tr.innerHTML = `
+    <td class="model-name">${row.pair}</td>
+    <td class="numcell">${row.n}</td>
+    <td class="numcell">${row.statcast.toFixed(4)}</td>
+    <td class="numcell">${row.custom.toFixed(4)}</td>
+    <td class="numcell">${row.actual.toFixed(4)}</td>
+  `;
+  stabilityTbody.appendChild(tr);
+});
+
+// --- render feature frequency ---
+const freqChart = document.getElementById("freq-chart");
+featureFreq.forEach(f => {
+  const row = document.createElement("div");
+  row.className = "freq-row";
+  const widthPct = (f.count / 9) * 100;
+  row.innerHTML = `
+    <div class="fname">${f.name}</div>
+    <div class="freq-track"><div class="freq-fill" style="width:${widthPct}%"></div></div>
+    <div class="fcount">${f.count}/9</div>
+  `;
+  freqChart.appendChild(row);
+});
+
+// --- render Part 2 predictive bar chart ---
+const predChart = document.getElementById("pred-chart");
+const PRED_BENCH_RMSE = 0.04767;
+const PRED_MAX_RMSE = Math.max(...predResults.map(r => r.rmse));
+function predPct(r) { return ((PRED_BENCH_RMSE - r) / PRED_BENCH_RMSE) * 100; }
+
+predResults.forEach(r => {
+  const row = document.createElement("div");
+  row.className = "chart-row";
+  const widthPct = (r.rmse / PRED_MAX_RMSE) * 100;
+  const benchLeftPct = (PRED_BENCH_RMSE / PRED_MAX_RMSE) * 100;
+  const delta = predPct(r.rmse);
+  let badgeHtml;
+  if (r.type === "model" && delta >= 1) {
+    badgeHtml = `<span class="delta-badge good">&minus;${delta.toFixed(1)}% err</span>`;
+  } else if (r.type === "model") {
+    badgeHtml = `<span class="delta-badge neutral">&asymp; tie</span>`;
+  } else if (r.type === "worse") {
+    badgeHtml = `<span class="delta-badge bad">+${Math.abs(delta).toFixed(1)}% err</span>`;
+  } else {
+    badgeHtml = `<span class="delta-badge neutral">benchmark</span>`;
+  }
+  const barClass = r.type === "benchmark" ? "is-benchmark" : (r.type === "worse" ? "is-worse" : "");
+  row.innerHTML = `
+    <div class="name">${r.name}<span class="sub">${r.sub}</span></div>
+    <div class="bar-track">
+      <div class="bench-line" style="left:${benchLeftPct}%"></div>
+      <div class="bar-fill ${barClass}" style="width:${widthPct}%"></div>
+    </div>
+    <div class="rmse-val">${r.rmse.toFixed(4)}<br/>${badgeHtml}</div>
+  `;
+  predChart.appendChild(row);
+
+  const bar = row.querySelector(".bar-fill");
+  bar.addEventListener("mousemove", (e) => {
+    tooltip.innerHTML = `<div class="t-title">${r.name}</div>` +
+      `RMSE ${r.rmse.toFixed(4)}<br/>R&sup2; ${r.r2.toFixed(3)} &middot; corr ${r.corr.toFixed(3)}<br/>${r.n} features`;
+    tooltip.style.left = e.clientX + "px";
+    tooltip.style.top = e.clientY + "px";
+    tooltip.classList.add("visible");
+  });
+  bar.addEventListener("mouseleave", () => tooltip.classList.remove("visible"));
+});
+
+// --- render Part 2 full table ---
+const predTbody = document.getElementById("pred-table-body");
+predFullTable.forEach(r => {
+  const tr = document.createElement("tr");
+  if (r.name.startsWith("Statcast") || r.name.startsWith("Explanatory")) tr.className = "benchmark-row";
+  const chips = r.feats.map(f => `<span class="chip">${f}</span>`).join("");
+  const rankLabel = r.rank === "" ? "&ndash;" : String(r.rank).padStart(2,"0");
+  tr.innerHTML = `
+    <td class="model-name"><span class="rank">${rankLabel}</span>${r.name}</td>
+    <td class="numcell">${r.rmse.toFixed(4)}</td>
+    <td class="numcell">${r.mae.toFixed(4)}</td>
+    <td class="numcell">${r.r2.toFixed(4)}</td>
+    <td class="numcell">${r.corr.toFixed(4)}</td>
+    <td class="numcell">${r.n}</td>
+    <td><div class="feat-chips">${chips}</div></td>
+  `;
+  predTbody.appendChild(tr);
+});
+
+// --- render feature frequency comparison (explanatory vs predictive) ---
+const freqCompareChart = document.getElementById("freq-compare-chart");
+featureFreqCompare.forEach(f => {
+  const wrap = document.createElement("div");
+  wrap.style.padding = "10px 0";
+  wrap.innerHTML = `
+    <div style="font-size:13.5px; color:var(--ink); font-weight:600; margin-bottom:6px;">${f.name}</div>
+    <div style="display:grid; grid-template-columns:90px 1fr 34px; align-items:center; gap:10px; margin-bottom:3px;">
+      <div style="font-size:11px; color:var(--ink-muted);">explanatory</div>
+      <div class="freq-track"><div class="freq-fill" style="width:${(f.explanatory/9)*100}%; background:var(--ink-muted); opacity:.55;"></div></div>
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-secondary); text-align:right;">${f.explanatory}/9</div>
+    </div>
+    <div style="display:grid; grid-template-columns:90px 1fr 34px; align-items:center; gap:10px;">
+      <div style="font-size:11px; color:var(--accent); font-weight:600;">predictive</div>
+      <div class="freq-track"><div class="freq-fill" style="width:${(f.predictive/9)*100}%;"></div></div>
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink); font-weight:600; text-align:right;">${f.predictive}/9</div>
+    </div>
+  `;
+  freqCompareChart.appendChild(wrap);
+  if (f !== featureFreqCompare[featureFreqCompare.length - 1]) {
+    const hr = document.createElement("div");
+    hr.style.borderTop = "1px solid var(--border)";
+    freqCompareChart.appendChild(hr);
+  }
+});
+</script>

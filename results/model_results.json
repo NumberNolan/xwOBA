@@ -1,0 +1,155 @@
+{
+  "linear_regression": {
+    "selected_features": [
+      "launch_speed",
+      "swing_path_tilt",
+      "bat_speed",
+      "launch_angle",
+      "spray_angle",
+      "swing_length",
+      "attack_direction"
+    ],
+    "selected_direction": "forward",
+    "n_features": 7,
+    "test_rmse": 0.5455463338846941,
+    "test_mae": 0.4642321440430408,
+    "test_r2": 0.09291435117540192,
+    "test_corr": 0.3048393280345762
+  },
+  "lasso": {
+    "selected_features": [
+      "launch_speed",
+      "swing_path_tilt",
+      "bat_speed",
+      "launch_angle",
+      "spray_angle",
+      "swing_length",
+      "attack_direction"
+    ],
+    "selected_direction": "forward",
+    "n_features": 7,
+    "test_rmse": 0.5455453227219986,
+    "test_mae": 0.4643709451365116,
+    "test_r2": 0.09291771371406321,
+    "test_corr": 0.3048285239906727
+  },
+  "ridge": {
+    "selected_features": [
+      "launch_speed",
+      "swing_path_tilt",
+      "bat_speed",
+      "launch_angle",
+      "spray_angle",
+      "swing_length",
+      "attack_direction"
+    ],
+    "selected_direction": "forward",
+    "n_features": 7,
+    "test_rmse": 0.5455463193776786,
+    "test_mae": 0.4642328737045868,
+    "test_r2": 0.0929143994173367,
+    "test_corr": 0.30483926564500685
+  },
+  "elasticnet": {
+    "selected_features": [
+      "launch_speed",
+      "swing_path_tilt",
+      "bat_speed",
+      "launch_angle",
+      "spray_angle",
+      "swing_length",
+      "attack_direction"
+    ],
+    "selected_direction": "forward",
+    "n_features": 7,
+    "test_rmse": 0.5455453241337229,
+    "test_mae": 0.4643710853615507,
+    "test_r2": 0.09291770901949403,
+    "test_corr": 0.30482850422179214
+  },
+  "xgboost": {
+    "selected_features": [
+      "launch_speed",
+      "launch_angle",
+      "spray_angle",
+      "stand_L"
+    ],
+    "selected_direction": "backward",
+    "n_features": 4,
+    "test_rmse": 0.3792300533900804,
+    "test_mae": 0.266720574621206,
+    "test_r2": 0.5616807875899338,
+    "test_corr": 0.7496588968790765
+  },
+  "lightgbm": {
+    "selected_features": [
+      "launch_speed",
+      "launch_angle",
+      "spray_angle",
+      "stand_L",
+      "swing_path_tilt"
+    ],
+    "selected_direction": "backward",
+    "n_features": 5,
+    "test_rmse": 0.372115866449456,
+    "test_mae": 0.255315141058689,
+    "test_r2": 0.5779718804070857,
+    "test_corr": 0.7605248852217769
+  },
+  "catboost": {
+    "selected_features": [
+      "launch_angle",
+      "launch_speed",
+      "spray_angle",
+      "stand_L"
+    ],
+    "selected_direction": "forward",
+    "n_features": 4,
+    "test_rmse": 0.37964393933618623,
+    "test_mae": 0.26868555555843704,
+    "test_r2": 0.5607235155771346,
+    "test_corr": 0.7491607151660002
+  },
+  "random_forest": {
+    "selected_features": [
+      "launch_speed",
+      "launch_angle",
+      "spray_angle",
+      "stand_L",
+      "swing_path_tilt"
+    ],
+    "selected_direction": "backward",
+    "n_features": 5,
+    "test_rmse": 0.37210070471714896,
+    "test_mae": 0.2358701630034039,
+    "test_r2": 0.5780062704860707,
+    "test_corr": 0.7605615001895862
+  },
+  "neural_net": {
+    "selected_features": [
+      "launch_speed",
+      "launch_angle",
+      "spray_angle",
+      "bat_speed",
+      "swing_path_tilt"
+    ],
+    "selected_direction": "backward",
+    "n_features": 5,
+    "test_rmse": 0.3836155525142277,
+    "test_mae": 0.26922681271028925,
+    "test_r2": 0.5514845325431166,
+    "test_corr": 0.7429125636627216
+  },
+  "statcast_xwoba_benchmark": {
+    "selected_features": [
+      "launch_speed",
+      "launch_angle"
+    ],
+    "selected_direction": "n/a (Statcast's own model)",
+    "n_features": 2,
+    "test_rmse": 0.4301347648318181,
+    "test_mae": 0.3015317799718632,
+    "test_r2": 0.43611037679298814,
+    "test_corr": 0.6604815198516275
+  }
+}

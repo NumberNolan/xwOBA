@@ -1,0 +1,24 @@
+{
+  "random_forest_tuned": {
+    "features": [
+      "launch_speed",
+      "launch_angle",
+      "spray_angle",
+      "stand_L",
+      "swing_path_tilt"
+    ],
+    "best_params": {
+      "max_depth": 20,
+      "max_features": 0.6,
+      "max_samples": 0.9753571532049581,
+      "min_samples_leaf": 8,
+      "min_samples_split": 22,
+      "n_estimators": 302
+    },
+    "cv_rmse": 0.3694631855065733,
+    "test_rmse": 0.3684427330023167,
+    "test_mae": 0.23991395737427246,
+    "test_r2": 0.5862623885248301,
+    "test_corr": 0.7657146717263319
+  }
+}

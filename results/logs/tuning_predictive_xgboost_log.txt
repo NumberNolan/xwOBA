@@ -1,0 +1,14 @@
+[2026-09-11 21:40:08] Train: 511  Test (held-out, later): 288
+[2026-09-11 21:40:08] Features (fixed, as specified): ['bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'launch_angle_mean']
+[2026-09-11 21:40:08] === RandomizedSearchCV: 3000 iters x 10-fold CV ===
+[2026-09-11 22:29:45] Search done in 2977.3s
+[2026-09-11 22:29:45] Best CV RMSE: 0.04366
+[2026-09-11 22:29:45] Best params: {'colsample_bytree': np.float64(0.6041664773013142), 'gamma': np.float64(0.016090114763485985), 'learning_rate': np.float64(0.03221961227560633), 'max_depth': 4, 'min_child_weight': 2, 'n_estimators': 578, 'reg_alpha': np.float64(0.009342607478572521), 'reg_lambda': np.float64(4.356262418008069), 'subsample': np.float64(0.5967332311822868)}
+[2026-09-11 22:29:45] TUNED test metrics: {'test_rmse': 0.04196473210275783, 'test_mae': 0.03350413148519065, 'test_r2': 0.3993101384757741, 'test_corr': 0.6367019912741931}
+[2026-09-11 22:29:45] Prior stepwise-selected XGBoost (different features, untuned): {'test_rmse': 0.042143058755971116, 'test_mae': 0.03358713123765257, 'test_r2': 0.3941940991156726, 'test_corr': 0.635196698079777}
+[2026-09-11 22:29:45] Statcast naive benchmark: {'test_rmse': 0.047670069080200744, 'test_r2': 0.22487284003690822, 'test_corr': 0.595476770755478}
+[2026-09-11 22:29:45] === SUMMARY (test RMSE predicting next season's actual wOBAcon) ===
+[2026-09-11 22:29:45]   statcast naive benchmark              : 0.04767
+[2026-09-11 22:29:45]   xgboost stepwise-selected (untuned)    : 0.04214
+[2026-09-11 22:29:45]   xgboost fixed-features TUNED           : 0.04196
+[2026-09-11 22:29:45] DONE.

@@ -1,0 +1,235 @@
+[2026-09-11 14:42:35] Loading modeling dataset...
+[2026-09-11 14:42:35] Total rows: 395774
+[2026-09-11 14:42:35] Train rows: 316619  Test rows: 79155
+[2026-09-11 14:42:35] Search subsample rows: 50000
+[2026-09-11 14:42:35] Tuning linear-model regularization strengths (once, on full feature set)...
+[2026-09-11 14:42:35] Alphas: {'lasso_alpha': np.float64(0.0005887399364713936), 'ridge_alpha': np.float64(10.0), 'enet_alpha': np.float64(0.0005946868045165589), 'enet_l1_ratio': np.float64(0.99)}
+[2026-09-11 14:42:35] === linear_regression: forward selection ===
+[2026-09-11 14:42:36]   forward  n=0 rmse=0.57188  ()
+[2026-09-11 14:42:36]   forward  n=1 rmse=0.54676  ('launch_speed',)
+[2026-09-11 14:42:36]   forward  n=2 rmse=0.54601  ('launch_speed', 'swing_path_tilt')
+[2026-09-11 14:42:36]   forward  n=3 rmse=0.54519  ('launch_speed', 'swing_path_tilt', 'bat_speed')
+[2026-09-11 14:42:36]   forward  n=4 rmse=0.54455  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle')
+[2026-09-11 14:42:36]   forward  n=5 rmse=0.54439  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle')
+[2026-09-11 14:42:36]   forward  n=6 rmse=0.54435  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length')
+[2026-09-11 14:42:36]   forward  n=7 rmse=0.54427  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length', 'attack_direction')
+[2026-09-11 14:42:36]   forward  n=8 rmse=0.54427  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length', 'attack_direction', 'stand_L')
+[2026-09-11 14:42:36]   forward  n=9 rmse=0.54428  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length', 'attack_direction', 'stand_L', 'attack_angle')
+[2026-09-11 14:42:36] === linear_regression: backward elimination ===
+[2026-09-11 14:42:38]   backward n=9 rmse=0.54428  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'stand_L', 'swing_length', 'attack_angle', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:42:38]   backward n=8 rmse=0.54427  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'stand_L', 'swing_length', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:42:38]   backward n=7 rmse=0.54427  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'swing_length', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:42:38]   backward n=6 rmse=0.54435  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'swing_length', 'swing_path_tilt')
+[2026-09-11 14:42:38]   backward n=5 rmse=0.54439  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'swing_path_tilt')
+[2026-09-11 14:42:38]   backward n=4 rmse=0.54455  ('launch_speed', 'launch_angle', 'bat_speed', 'swing_path_tilt')
+[2026-09-11 14:42:38]   backward n=3 rmse=0.54519  ('launch_speed', 'bat_speed', 'swing_path_tilt')
+[2026-09-11 14:42:38]   backward n=2 rmse=0.54601  ('launch_speed', 'swing_path_tilt')
+[2026-09-11 14:42:38]   backward n=1 rmse=0.54676  ('launch_speed',)
+[2026-09-11 14:42:38] linear_regression: SELECTED (forward) features=['launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length', 'attack_direction'] search_cv_rmse=0.54427  [search phase took 2.5s]
+[2026-09-11 14:42:38] linear_regression: refitting on full training set (316619 rows) with final hyperparams...
+[2026-09-11 14:42:38] linear_regression: TEST rmse=0.54555 mae=0.46423 r2=0.09291 corr=0.30484 [final fit took 0.1s]
+[2026-09-11 14:42:38] === lasso: forward selection ===
+[2026-09-11 14:42:39]   forward  n=0 rmse=0.57188  ()
+[2026-09-11 14:42:39]   forward  n=1 rmse=0.54676  ('launch_speed',)
+[2026-09-11 14:42:39]   forward  n=2 rmse=0.54601  ('launch_speed', 'swing_path_tilt')
+[2026-09-11 14:42:39]   forward  n=3 rmse=0.54519  ('launch_speed', 'swing_path_tilt', 'bat_speed')
+[2026-09-11 14:42:39]   forward  n=4 rmse=0.54455  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle')
+[2026-09-11 14:42:39]   forward  n=5 rmse=0.54439  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle')
+[2026-09-11 14:42:39]   forward  n=6 rmse=0.54435  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length')
+[2026-09-11 14:42:39]   forward  n=7 rmse=0.54428  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length', 'attack_direction')
+[2026-09-11 14:42:39]   forward  n=8 rmse=0.54428  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length', 'attack_direction', 'stand_L')
+[2026-09-11 14:42:39]   forward  n=9 rmse=0.54428  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length', 'attack_direction', 'stand_L', 'attack_angle')
+[2026-09-11 14:42:39] === lasso: backward elimination ===
+[2026-09-11 14:42:41]   backward n=9 rmse=0.54428  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'stand_L', 'swing_length', 'attack_angle', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:42:41]   backward n=8 rmse=0.54428  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'stand_L', 'swing_length', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:42:41]   backward n=7 rmse=0.54428  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'swing_length', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:42:41]   backward n=6 rmse=0.54435  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'swing_length', 'swing_path_tilt')
+[2026-09-11 14:42:41]   backward n=5 rmse=0.54439  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'swing_path_tilt')
+[2026-09-11 14:42:41]   backward n=4 rmse=0.54455  ('launch_speed', 'launch_angle', 'bat_speed', 'swing_path_tilt')
+[2026-09-11 14:42:41]   backward n=3 rmse=0.54519  ('launch_speed', 'bat_speed', 'swing_path_tilt')
+[2026-09-11 14:42:41]   backward n=2 rmse=0.54601  ('launch_speed', 'swing_path_tilt')
+[2026-09-11 14:42:41]   backward n=1 rmse=0.54676  ('launch_speed',)
+[2026-09-11 14:42:41] lasso: SELECTED (forward) features=['launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length', 'attack_direction'] search_cv_rmse=0.54428  [search phase took 3.2s]
+[2026-09-11 14:42:41] lasso: refitting on full training set (316619 rows) with final hyperparams...
+[2026-09-11 14:42:41] lasso: TEST rmse=0.54555 mae=0.46437 r2=0.09292 corr=0.30483 [final fit took 0.1s]
+[2026-09-11 14:42:41] === ridge: forward selection ===
+[2026-09-11 14:42:42]   forward  n=0 rmse=0.57188  ()
+[2026-09-11 14:42:42]   forward  n=1 rmse=0.54676  ('launch_speed',)
+[2026-09-11 14:42:42]   forward  n=2 rmse=0.54601  ('launch_speed', 'swing_path_tilt')
+[2026-09-11 14:42:42]   forward  n=3 rmse=0.54519  ('launch_speed', 'swing_path_tilt', 'bat_speed')
+[2026-09-11 14:42:42]   forward  n=4 rmse=0.54455  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle')
+[2026-09-11 14:42:42]   forward  n=5 rmse=0.54439  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle')
+[2026-09-11 14:42:42]   forward  n=6 rmse=0.54435  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length')
+[2026-09-11 14:42:42]   forward  n=7 rmse=0.54427  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length', 'attack_direction')
+[2026-09-11 14:42:42]   forward  n=8 rmse=0.54427  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length', 'attack_direction', 'stand_L')
+[2026-09-11 14:42:42]   forward  n=9 rmse=0.54428  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length', 'attack_direction', 'stand_L', 'attack_angle')
+[2026-09-11 14:42:42] === ridge: backward elimination ===
+[2026-09-11 14:42:43]   backward n=9 rmse=0.54428  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'stand_L', 'swing_length', 'attack_angle', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:42:43]   backward n=8 rmse=0.54427  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'stand_L', 'swing_length', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:42:43]   backward n=7 rmse=0.54427  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'swing_length', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:42:43]   backward n=6 rmse=0.54435  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'swing_length', 'swing_path_tilt')
+[2026-09-11 14:42:43]   backward n=5 rmse=0.54439  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'swing_path_tilt')
+[2026-09-11 14:42:43]   backward n=4 rmse=0.54455  ('launch_speed', 'launch_angle', 'bat_speed', 'swing_path_tilt')
+[2026-09-11 14:42:43]   backward n=3 rmse=0.54519  ('launch_speed', 'bat_speed', 'swing_path_tilt')
+[2026-09-11 14:42:43]   backward n=2 rmse=0.54601  ('launch_speed', 'swing_path_tilt')
+[2026-09-11 14:42:43]   backward n=1 rmse=0.54676  ('launch_speed',)
+[2026-09-11 14:42:43] ridge: SELECTED (forward) features=['launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length', 'attack_direction'] search_cv_rmse=0.54427  [search phase took 2.2s]
+[2026-09-11 14:42:43] ridge: refitting on full training set (316619 rows) with final hyperparams...
+[2026-09-11 14:42:43] ridge: TEST rmse=0.54555 mae=0.46423 r2=0.09291 corr=0.30484 [final fit took 0.1s]
+[2026-09-11 14:42:43] === elasticnet: forward selection ===
+[2026-09-11 14:42:45]   forward  n=0 rmse=0.57188  ()
+[2026-09-11 14:42:45]   forward  n=1 rmse=0.54676  ('launch_speed',)
+[2026-09-11 14:42:45]   forward  n=2 rmse=0.54601  ('launch_speed', 'swing_path_tilt')
+[2026-09-11 14:42:45]   forward  n=3 rmse=0.54519  ('launch_speed', 'swing_path_tilt', 'bat_speed')
+[2026-09-11 14:42:45]   forward  n=4 rmse=0.54455  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle')
+[2026-09-11 14:42:45]   forward  n=5 rmse=0.54439  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle')
+[2026-09-11 14:42:45]   forward  n=6 rmse=0.54435  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length')
+[2026-09-11 14:42:45]   forward  n=7 rmse=0.54428  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length', 'attack_direction')
+[2026-09-11 14:42:45]   forward  n=8 rmse=0.54428  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length', 'attack_direction', 'stand_L')
+[2026-09-11 14:42:45]   forward  n=9 rmse=0.54428  ('launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length', 'attack_direction', 'stand_L', 'attack_angle')
+[2026-09-11 14:42:45] === elasticnet: backward elimination ===
+[2026-09-11 14:42:47]   backward n=9 rmse=0.54428  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'stand_L', 'swing_length', 'attack_angle', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:42:47]   backward n=8 rmse=0.54428  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'stand_L', 'swing_length', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:42:47]   backward n=7 rmse=0.54428  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'swing_length', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:42:47]   backward n=6 rmse=0.54435  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'swing_length', 'swing_path_tilt')
+[2026-09-11 14:42:47]   backward n=5 rmse=0.54439  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'swing_path_tilt')
+[2026-09-11 14:42:47]   backward n=4 rmse=0.54455  ('launch_speed', 'launch_angle', 'bat_speed', 'swing_path_tilt')
+[2026-09-11 14:42:47]   backward n=3 rmse=0.54519  ('launch_speed', 'bat_speed', 'swing_path_tilt')
+[2026-09-11 14:42:47]   backward n=2 rmse=0.54601  ('launch_speed', 'swing_path_tilt')
+[2026-09-11 14:42:47]   backward n=1 rmse=0.54676  ('launch_speed',)
+[2026-09-11 14:42:47] elasticnet: SELECTED (forward) features=['launch_speed', 'swing_path_tilt', 'bat_speed', 'launch_angle', 'spray_angle', 'swing_length', 'attack_direction'] search_cv_rmse=0.54428  [search phase took 3.3s]
+[2026-09-11 14:42:47] elasticnet: refitting on full training set (316619 rows) with final hyperparams...
+[2026-09-11 14:42:47] elasticnet: TEST rmse=0.54555 mae=0.46437 r2=0.09292 corr=0.30483 [final fit took 0.1s]
+[2026-09-11 14:42:47] === xgboost: forward selection ===
+[2026-09-11 14:42:59]   forward  n=0 rmse=0.57188  ()
+[2026-09-11 14:42:59]   forward  n=1 rmse=0.51038  ('launch_angle',)
+[2026-09-11 14:42:59]   forward  n=2 rmse=0.48070  ('launch_angle', 'launch_speed')
+[2026-09-11 14:42:59]   forward  n=3 rmse=0.41428  ('launch_angle', 'launch_speed', 'spray_angle')
+[2026-09-11 14:42:59]   forward  n=4 rmse=0.40692  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L')
+[2026-09-11 14:42:59]   forward  n=5 rmse=0.40584  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'swing_path_tilt')
+[2026-09-11 14:42:59]   forward  n=6 rmse=0.40867  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'swing_path_tilt', 'attack_direction')
+[2026-09-11 14:42:59]   forward  n=7 rmse=0.40670  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'swing_path_tilt', 'attack_direction', 'swing_length')
+[2026-09-11 14:42:59]   forward  n=8 rmse=0.40754  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'swing_path_tilt', 'attack_direction', 'swing_length', 'attack_angle')
+[2026-09-11 14:42:59]   forward  n=9 rmse=0.40817  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'swing_path_tilt', 'attack_direction', 'swing_length', 'attack_angle', 'bat_speed')
+[2026-09-11 14:42:59] === xgboost: backward elimination ===
+[2026-09-11 14:43:12]   backward n=9 rmse=0.40733  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'stand_L', 'swing_length', 'attack_angle', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:43:12]   backward n=8 rmse=0.40795  ('launch_speed', 'launch_angle', 'spray_angle', 'stand_L', 'swing_length', 'attack_angle', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:43:12]   backward n=7 rmse=0.40885  ('launch_speed', 'launch_angle', 'spray_angle', 'stand_L', 'attack_angle', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:43:12]   backward n=6 rmse=0.41149  ('launch_speed', 'launch_angle', 'spray_angle', 'stand_L', 'attack_angle', 'swing_path_tilt')
+[2026-09-11 14:43:12]   backward n=5 rmse=0.40688  ('launch_speed', 'launch_angle', 'spray_angle', 'stand_L', 'swing_path_tilt')
+[2026-09-11 14:43:12]   backward n=4 rmse=0.40562  ('launch_speed', 'launch_angle', 'spray_angle', 'stand_L')
+[2026-09-11 14:43:12]   backward n=3 rmse=0.41428  ('launch_speed', 'launch_angle', 'spray_angle')
+[2026-09-11 14:43:12]   backward n=2 rmse=0.48062  ('launch_speed', 'launch_angle')
+[2026-09-11 14:43:12]   backward n=1 rmse=0.51038  ('launch_angle',)
+[2026-09-11 14:43:12] xgboost: SELECTED (backward) features=['launch_speed', 'launch_angle', 'spray_angle', 'stand_L'] search_cv_rmse=0.40562  [search phase took 25.2s]
+[2026-09-11 14:43:12] xgboost: refitting on full training set (316619 rows) with final hyperparams...
+[2026-09-11 14:43:15] xgboost: TEST rmse=0.37923 mae=0.26672 r2=0.56168 corr=0.74966 [final fit took 2.7s]
+[2026-09-11 14:43:15] === lightgbm: forward selection ===
+[2026-09-11 14:43:28]   forward  n=0 rmse=0.57188  ()
+[2026-09-11 14:43:28]   forward  n=1 rmse=0.51054  ('launch_angle',)
+[2026-09-11 14:43:28]   forward  n=2 rmse=0.43240  ('launch_angle', 'launch_speed')
+[2026-09-11 14:43:28]   forward  n=3 rmse=0.42366  ('launch_angle', 'launch_speed', 'spray_angle')
+[2026-09-11 14:43:28]   forward  n=4 rmse=0.38852  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L')
+[2026-09-11 14:43:28]   forward  n=5 rmse=0.38539  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'swing_path_tilt')
+[2026-09-11 14:43:28]   forward  n=6 rmse=0.38650  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'swing_path_tilt', 'swing_length')
+[2026-09-11 14:43:28]   forward  n=7 rmse=0.38590  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'swing_path_tilt', 'swing_length', 'attack_direction')
+[2026-09-11 14:43:28]   forward  n=8 rmse=0.38727  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'swing_path_tilt', 'swing_length', 'attack_direction', 'attack_angle')
+[2026-09-11 14:43:28]   forward  n=9 rmse=0.38886  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'swing_path_tilt', 'swing_length', 'attack_direction', 'attack_angle', 'bat_speed')
+[2026-09-11 14:43:28] === lightgbm: backward elimination ===
+[2026-09-11 14:43:42]   backward n=9 rmse=0.38840  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'stand_L', 'swing_length', 'attack_angle', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:43:42]   backward n=8 rmse=0.38867  ('launch_speed', 'launch_angle', 'spray_angle', 'stand_L', 'swing_length', 'attack_angle', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:43:42]   backward n=7 rmse=0.38557  ('launch_speed', 'launch_angle', 'spray_angle', 'stand_L', 'swing_length', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:43:42]   backward n=6 rmse=0.38675  ('launch_speed', 'launch_angle', 'spray_angle', 'stand_L', 'swing_length', 'swing_path_tilt')
+[2026-09-11 14:43:42]   backward n=5 rmse=0.38487  ('launch_speed', 'launch_angle', 'spray_angle', 'stand_L', 'swing_path_tilt')
+[2026-09-11 14:43:42]   backward n=4 rmse=0.38851  ('launch_speed', 'launch_angle', 'spray_angle', 'stand_L')
+[2026-09-11 14:43:42]   backward n=3 rmse=0.40950  ('launch_speed', 'launch_angle', 'spray_angle')
+[2026-09-11 14:43:42]   backward n=2 rmse=0.43240  ('launch_speed', 'launch_angle')
+[2026-09-11 14:43:42]   backward n=1 rmse=0.51054  ('launch_angle',)
+[2026-09-11 14:43:42] lightgbm: SELECTED (backward) features=['launch_speed', 'launch_angle', 'spray_angle', 'stand_L', 'swing_path_tilt'] search_cv_rmse=0.38487  [search phase took 27.1s]
+[2026-09-11 14:43:42] lightgbm: refitting on full training set (316619 rows) with final hyperparams...
+[2026-09-11 14:43:43] lightgbm: TEST rmse=0.37212 mae=0.25532 r2=0.57797 corr=0.76052 [final fit took 1.4s]
+[2026-09-11 14:43:43] === catboost: forward selection ===
+[2026-09-11 14:44:22]   forward  n=0 rmse=0.57188  ()
+[2026-09-11 14:44:22]   forward  n=1 rmse=0.51009  ('launch_angle',)
+[2026-09-11 14:44:22]   forward  n=2 rmse=0.43200  ('launch_angle', 'launch_speed')
+[2026-09-11 14:44:22]   forward  n=3 rmse=0.40309  ('launch_angle', 'launch_speed', 'spray_angle')
+[2026-09-11 14:44:22]   forward  n=4 rmse=0.39673  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L')
+[2026-09-11 14:44:22]   forward  n=5 rmse=0.39781  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'attack_angle')
+[2026-09-11 14:44:22]   forward  n=6 rmse=0.39823  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'attack_angle', 'attack_direction')
+[2026-09-11 14:44:22]   forward  n=7 rmse=0.39961  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'attack_angle', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:44:22]   forward  n=8 rmse=0.40104  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'attack_angle', 'attack_direction', 'swing_path_tilt', 'swing_length')
+[2026-09-11 14:44:22]   forward  n=9 rmse=0.40074  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'attack_angle', 'attack_direction', 'swing_path_tilt', 'swing_length', 'bat_speed')
+[2026-09-11 14:44:22] === catboost: backward elimination ===
+[2026-09-11 14:45:01]   backward n=9 rmse=0.40017  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'stand_L', 'swing_length', 'attack_angle', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:45:01]   backward n=8 rmse=0.40045  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'stand_L', 'swing_length', 'attack_angle', 'swing_path_tilt')
+[2026-09-11 14:45:01]   backward n=7 rmse=0.39989  ('launch_speed', 'launch_angle', 'spray_angle', 'stand_L', 'swing_length', 'attack_angle', 'swing_path_tilt')
+[2026-09-11 14:45:01]   backward n=6 rmse=0.39904  ('launch_speed', 'launch_angle', 'spray_angle', 'stand_L', 'attack_angle', 'swing_path_tilt')
+[2026-09-11 14:45:01]   backward n=5 rmse=0.39754  ('launch_speed', 'launch_angle', 'spray_angle', 'stand_L', 'attack_angle')
+[2026-09-11 14:45:01]   backward n=4 rmse=0.39708  ('launch_speed', 'launch_angle', 'spray_angle', 'stand_L')
+[2026-09-11 14:45:01]   backward n=3 rmse=0.40295  ('launch_speed', 'launch_angle', 'spray_angle')
+[2026-09-11 14:45:01]   backward n=2 rmse=0.43177  ('launch_speed', 'launch_angle')
+[2026-09-11 14:45:01]   backward n=1 rmse=0.51009  ('launch_angle',)
+[2026-09-11 14:45:01] catboost: SELECTED (forward) features=['launch_angle', 'launch_speed', 'spray_angle', 'stand_L'] search_cv_rmse=0.39673  [search phase took 78.3s]
+[2026-09-11 14:45:01] catboost: refitting on full training set (316619 rows) with final hyperparams...
+[2026-09-11 14:45:09] catboost: TEST rmse=0.37964 mae=0.26869 r2=0.56072 corr=0.74916 [final fit took 7.5s]
+[2026-09-11 14:45:09] === random_forest: forward selection ===
+[2026-09-11 14:46:29]   forward  n=0 rmse=0.57188  ()
+[2026-09-11 14:46:29]   forward  n=1 rmse=0.51057  ('launch_angle',)
+[2026-09-11 14:46:29]   forward  n=2 rmse=0.43549  ('launch_angle', 'launch_speed')
+[2026-09-11 14:46:29]   forward  n=3 rmse=0.39992  ('launch_angle', 'launch_speed', 'spray_angle')
+[2026-09-11 14:46:29]   forward  n=4 rmse=0.39279  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L')
+[2026-09-11 14:46:29]   forward  n=5 rmse=0.39275  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'swing_path_tilt')
+[2026-09-11 14:46:29]   forward  n=6 rmse=0.39301  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'swing_path_tilt', 'swing_length')
+[2026-09-11 14:46:29]   forward  n=7 rmse=0.39352  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'swing_path_tilt', 'swing_length', 'attack_direction')
+[2026-09-11 14:46:29]   forward  n=8 rmse=0.39409  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'swing_path_tilt', 'swing_length', 'attack_direction', 'bat_speed')
+[2026-09-11 14:46:29]   forward  n=9 rmse=0.39483  ('launch_angle', 'launch_speed', 'spray_angle', 'stand_L', 'swing_path_tilt', 'swing_length', 'attack_direction', 'bat_speed', 'attack_angle')
+[2026-09-11 14:46:29] === random_forest: backward elimination ===
+[2026-09-11 14:48:14]   backward n=9 rmse=0.39484  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'stand_L', 'swing_length', 'attack_angle', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:48:14]   backward n=8 rmse=0.39409  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'stand_L', 'swing_length', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:48:14]   backward n=7 rmse=0.39345  ('launch_speed', 'launch_angle', 'spray_angle', 'stand_L', 'swing_length', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 14:48:14]   backward n=6 rmse=0.39301  ('launch_speed', 'launch_angle', 'spray_angle', 'stand_L', 'swing_length', 'swing_path_tilt')
+[2026-09-11 14:48:14]   backward n=5 rmse=0.39275  ('launch_speed', 'launch_angle', 'spray_angle', 'stand_L', 'swing_path_tilt')
+[2026-09-11 14:48:14]   backward n=4 rmse=0.39284  ('launch_speed', 'launch_angle', 'spray_angle', 'stand_L')
+[2026-09-11 14:48:14]   backward n=3 rmse=0.39987  ('launch_speed', 'launch_angle', 'spray_angle')
+[2026-09-11 14:48:14]   backward n=2 rmse=0.43550  ('launch_speed', 'launch_angle')
+[2026-09-11 14:48:14]   backward n=1 rmse=0.51057  ('launch_angle',)
+[2026-09-11 14:48:14] random_forest: SELECTED (backward) features=['launch_speed', 'launch_angle', 'spray_angle', 'stand_L', 'swing_path_tilt'] search_cv_rmse=0.39275  [search phase took 185.0s]
+[2026-09-11 14:48:14] random_forest: refitting on full training set (316619 rows) with final hyperparams...
+[2026-09-11 14:49:13] random_forest: TEST rmse=0.37210 mae=0.23587 r2=0.57801 corr=0.76056 [final fit took 58.6s]
+[2026-09-11 14:49:13] === neural_net: forward selection ===
+[2026-09-11 14:59:32]   forward  n=0 rmse=0.57188  ()
+[2026-09-11 14:59:32]   forward  n=1 rmse=0.51071  ('launch_angle',)
+[2026-09-11 14:59:32]   forward  n=2 rmse=0.44271  ('launch_angle', 'launch_speed')
+[2026-09-11 14:59:32]   forward  n=3 rmse=0.42882  ('launch_angle', 'launch_speed', 'spray_angle')
+[2026-09-11 14:59:32]   forward  n=4 rmse=0.42599  ('launch_angle', 'launch_speed', 'spray_angle', 'swing_path_tilt')
+[2026-09-11 14:59:32]   forward  n=5 rmse=0.42788  ('launch_angle', 'launch_speed', 'spray_angle', 'swing_path_tilt', 'attack_angle')
+[2026-09-11 14:59:32]   forward  n=6 rmse=0.42905  ('launch_angle', 'launch_speed', 'spray_angle', 'swing_path_tilt', 'attack_angle', 'attack_direction')
+[2026-09-11 14:59:32]   forward  n=7 rmse=0.43259  ('launch_angle', 'launch_speed', 'spray_angle', 'swing_path_tilt', 'attack_angle', 'attack_direction', 'bat_speed')
+[2026-09-11 14:59:32]   forward  n=8 rmse=0.42482  ('launch_angle', 'launch_speed', 'spray_angle', 'swing_path_tilt', 'attack_angle', 'attack_direction', 'bat_speed', 'swing_length')
+[2026-09-11 14:59:32]   forward  n=9 rmse=0.42694  ('launch_angle', 'launch_speed', 'spray_angle', 'swing_path_tilt', 'attack_angle', 'attack_direction', 'bat_speed', 'swing_length', 'stand_L')
+[2026-09-11 14:59:32] === neural_net: backward elimination ===
+[2026-09-11 15:10:40]   backward n=9 rmse=0.42965  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'stand_L', 'swing_length', 'attack_angle', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 15:10:40]   backward n=8 rmse=0.42819  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'stand_L', 'swing_length', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 15:10:40]   backward n=7 rmse=0.42208  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'swing_length', 'attack_direction', 'swing_path_tilt')
+[2026-09-11 15:10:40]   backward n=6 rmse=0.42766  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'swing_length', 'swing_path_tilt')
+[2026-09-11 15:10:40]   backward n=5 rmse=0.42201  ('launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'swing_path_tilt')
+[2026-09-11 15:10:40]   backward n=4 rmse=0.42643  ('launch_speed', 'launch_angle', 'spray_angle', 'swing_path_tilt')
+[2026-09-11 15:10:40]   backward n=3 rmse=0.42581  ('launch_speed', 'launch_angle', 'spray_angle')
+[2026-09-11 15:10:40]   backward n=2 rmse=0.44069  ('launch_speed', 'launch_angle')
+[2026-09-11 15:10:40]   backward n=1 rmse=0.51071  ('launch_angle',)
+[2026-09-11 15:10:40] neural_net: SELECTED (backward) features=['launch_speed', 'launch_angle', 'spray_angle', 'bat_speed', 'swing_path_tilt'] search_cv_rmse=0.42201  [search phase took 1287.3s]
+[2026-09-11 15:10:40] neural_net: refitting on full training set (316619 rows) with final hyperparams...
+[2026-09-11 15:11:08] neural_net: TEST rmse=0.38362 mae=0.26923 r2=0.55148 corr=0.74291 [final fit took 27.8s]
+[2026-09-11 15:11:08] BENCHMARK statcast xwOBA: rmse=0.43013 mae=0.30153 r2=0.43611 corr=0.66048
+[2026-09-11 15:11:08] === FINAL COMPARISON TABLE (sorted by test RMSE, lower is better) ===
+[2026-09-11 15:11:08]   random_forest                rmse=0.37210 mae=0.23587 r2=0.57801 corr=0.76056 n_feat=5
+[2026-09-11 15:11:08]   lightgbm                     rmse=0.37212 mae=0.25532 r2=0.57797 corr=0.76052 n_feat=5
+[2026-09-11 15:11:08]   xgboost                      rmse=0.37923 mae=0.26672 r2=0.56168 corr=0.74966 n_feat=4
+[2026-09-11 15:11:08]   catboost                     rmse=0.37964 mae=0.26869 r2=0.56072 corr=0.74916 n_feat=4
+[2026-09-11 15:11:08]   neural_net                   rmse=0.38362 mae=0.26923 r2=0.55148 corr=0.74291 n_feat=5
+[2026-09-11 15:11:08]   statcast_xwoba_benchmark     rmse=0.43013 mae=0.30153 r2=0.43611 corr=0.66048 n_feat=2
+[2026-09-11 15:11:08]   lasso                        rmse=0.54555 mae=0.46437 r2=0.09292 corr=0.30483 n_feat=7
+[2026-09-11 15:11:08]   elasticnet                   rmse=0.54555 mae=0.46437 r2=0.09292 corr=0.30483 n_feat=7
+[2026-09-11 15:11:08]   ridge                        rmse=0.54555 mae=0.46423 r2=0.09291 corr=0.30484 n_feat=7
+[2026-09-11 15:11:08]   linear_regression            rmse=0.54555 mae=0.46423 r2=0.09291 corr=0.30484 n_feat=7
+[2026-09-11 15:11:08] DONE.

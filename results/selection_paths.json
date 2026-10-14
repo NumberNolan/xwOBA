@@ -1,0 +1,1799 @@
+{
+  "linear_regression": {
+    "forward": [
+      {
+        "features": [],
+        "cv_rmse": 0.571884626043231
+      },
+      {
+        "features": [
+          "launch_speed"
+        ],
+        "cv_rmse": 0.5467615440742747
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5460089809090859
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed"
+        ],
+        "cv_rmse": 0.5451889681227624
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle"
+        ],
+        "cv_rmse": 0.5445458446696251
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle"
+        ],
+        "cv_rmse": 0.5443889021125664
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle",
+          "swing_length"
+        ],
+        "cv_rmse": 0.5443452758597433
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle",
+          "swing_length",
+          "attack_direction"
+        ],
+        "cv_rmse": 0.5442744717481022
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle",
+          "swing_length",
+          "attack_direction",
+          "stand_L"
+        ],
+        "cv_rmse": 0.5442749394844454
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle",
+          "swing_length",
+          "attack_direction",
+          "stand_L",
+          "attack_angle"
+        ],
+        "cv_rmse": 0.5442839954144042
+      }
+    ],
+    "backward": [
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "stand_L",
+          "swing_length",
+          "attack_angle",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5442839954144041
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "stand_L",
+          "swing_length",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5442749394844454
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "swing_length",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5442744717481022
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "swing_length",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5443452758597433
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5443889021125664
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "bat_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5445458446696251
+      },
+      {
+        "features": [
+          "launch_speed",
+          "bat_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5451889681227624
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5460089809090859
+      },
+      {
+        "features": [
+          "launch_speed"
+        ],
+        "cv_rmse": 0.5467615440742747
+      }
+    ],
+    "selected_features": [
+      "launch_speed",
+      "swing_path_tilt",
+      "bat_speed",
+      "launch_angle",
+      "spray_angle",
+      "swing_length",
+      "attack_direction"
+    ],
+    "selected_direction": "forward",
+    "selected_search_cv_rmse": 0.5442744717481022
+  },
+  "lasso": {
+    "forward": [
+      {
+        "features": [],
+        "cv_rmse": 0.571884626043231
+      },
+      {
+        "features": [
+          "launch_speed"
+        ],
+        "cv_rmse": 0.5467618711043076
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5460097288337268
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed"
+        ],
+        "cv_rmse": 0.5451905540490113
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle"
+        ],
+        "cv_rmse": 0.5445480227047945
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle"
+        ],
+        "cv_rmse": 0.5443912843478261
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle",
+          "swing_length"
+        ],
+        "cv_rmse": 0.5443478750277411
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle",
+          "swing_length",
+          "attack_direction"
+        ],
+        "cv_rmse": 0.5442770469368773
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle",
+          "swing_length",
+          "attack_direction",
+          "stand_L"
+        ],
+        "cv_rmse": 0.544277950526225
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle",
+          "swing_length",
+          "attack_direction",
+          "stand_L",
+          "attack_angle"
+        ],
+        "cv_rmse": 0.5442828256893795
+      }
+    ],
+    "backward": [
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "stand_L",
+          "swing_length",
+          "attack_angle",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5442828961107007
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "stand_L",
+          "swing_length",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5442780203111123
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "swing_length",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5442771224122851
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "swing_length",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5443478731579228
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5443912852659138
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "bat_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5445480239224775
+      },
+      {
+        "features": [
+          "launch_speed",
+          "bat_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5451905541821643
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5460097288337268
+      },
+      {
+        "features": [
+          "launch_speed"
+        ],
+        "cv_rmse": 0.5467618711043076
+      }
+    ],
+    "selected_features": [
+      "launch_speed",
+      "swing_path_tilt",
+      "bat_speed",
+      "launch_angle",
+      "spray_angle",
+      "swing_length",
+      "attack_direction"
+    ],
+    "selected_direction": "forward",
+    "selected_search_cv_rmse": 0.5442770469368773
+  },
+  "ridge": {
+    "forward": [
+      {
+        "features": [],
+        "cv_rmse": 0.571884626043231
+      },
+      {
+        "features": [
+          "launch_speed"
+        ],
+        "cv_rmse": 0.5467615425767538
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5460089783828123
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed"
+        ],
+        "cv_rmse": 0.5451889099808331
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle"
+        ],
+        "cv_rmse": 0.5445457850198472
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle"
+        ],
+        "cv_rmse": 0.5443888371416783
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle",
+          "swing_length"
+        ],
+        "cv_rmse": 0.5443452048229857
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle",
+          "swing_length",
+          "attack_direction"
+        ],
+        "cv_rmse": 0.5442743511392273
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle",
+          "swing_length",
+          "attack_direction",
+          "stand_L"
+        ],
+        "cv_rmse": 0.5442748230239545
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle",
+          "swing_length",
+          "attack_direction",
+          "stand_L",
+          "attack_angle"
+        ],
+        "cv_rmse": 0.5442838748979921
+      }
+    ],
+    "backward": [
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "stand_L",
+          "swing_length",
+          "attack_angle",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5442838748979921
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "stand_L",
+          "swing_length",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5442748230239545
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "swing_length",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5442743511392273
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "swing_length",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5443452048229857
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5443888371416783
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "bat_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5445457850198472
+      },
+      {
+        "features": [
+          "launch_speed",
+          "bat_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5451889099808331
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5460089783828123
+      },
+      {
+        "features": [
+          "launch_speed"
+        ],
+        "cv_rmse": 0.5467615425767538
+      }
+    ],
+    "selected_features": [
+      "launch_speed",
+      "swing_path_tilt",
+      "bat_speed",
+      "launch_angle",
+      "spray_angle",
+      "swing_length",
+      "attack_direction"
+    ],
+    "selected_direction": "forward",
+    "selected_search_cv_rmse": 0.5442743511392273
+  },
+  "elasticnet": {
+    "forward": [
+      {
+        "features": [],
+        "cv_rmse": 0.571884626043231
+      },
+      {
+        "features": [
+          "launch_speed"
+        ],
+        "cv_rmse": 0.5467618720994795
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.546009730092862
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed"
+        ],
+        "cv_rmse": 0.5451905558499784
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle"
+        ],
+        "cv_rmse": 0.5445480250497037
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle"
+        ],
+        "cv_rmse": 0.5443912865888014
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle",
+          "swing_length"
+        ],
+        "cv_rmse": 0.5443478771220387
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle",
+          "swing_length",
+          "attack_direction"
+        ],
+        "cv_rmse": 0.5442770484761085
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle",
+          "swing_length",
+          "attack_direction",
+          "stand_L"
+        ],
+        "cv_rmse": 0.54427795211375
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt",
+          "bat_speed",
+          "launch_angle",
+          "spray_angle",
+          "swing_length",
+          "attack_direction",
+          "stand_L",
+          "attack_angle"
+        ],
+        "cv_rmse": 0.5442828272290833
+      }
+    ],
+    "backward": [
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "stand_L",
+          "swing_length",
+          "attack_angle",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5442828976653836
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "stand_L",
+          "swing_length",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5442780219138028
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "swing_length",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5442771239675223
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "swing_length",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.54434787525632
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5443912875101917
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "bat_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5445480262704147
+      },
+      {
+        "features": [
+          "launch_speed",
+          "bat_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.5451905559843649
+      },
+      {
+        "features": [
+          "launch_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.546009730092862
+      },
+      {
+        "features": [
+          "launch_speed"
+        ],
+        "cv_rmse": 0.5467618720994795
+      }
+    ],
+    "selected_features": [
+      "launch_speed",
+      "swing_path_tilt",
+      "bat_speed",
+      "launch_angle",
+      "spray_angle",
+      "swing_length",
+      "attack_direction"
+    ],
+    "selected_direction": "forward",
+    "selected_search_cv_rmse": 0.5442770484761085
+  },
+  "xgboost": {
+    "forward": [
+      {
+        "features": [],
+        "cv_rmse": 0.571884626043231
+      },
+      {
+        "features": [
+          "launch_angle"
+        ],
+        "cv_rmse": 0.510378134660259
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed"
+        ],
+        "cv_rmse": 0.48069633551111124
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle"
+        ],
+        "cv_rmse": 0.4142760654074802
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L"
+        ],
+        "cv_rmse": 0.4069161507625631
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.40583645478832037
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "swing_path_tilt",
+          "attack_direction"
+        ],
+        "cv_rmse": 0.40867341438588795
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "swing_path_tilt",
+          "attack_direction",
+          "swing_length"
+        ],
+        "cv_rmse": 0.4066990259024947
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "swing_path_tilt",
+          "attack_direction",
+          "swing_length",
+          "attack_angle"
+        ],
+        "cv_rmse": 0.4075351507018449
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "swing_path_tilt",
+          "attack_direction",
+          "swing_length",
+          "attack_angle",
+          "bat_speed"
+        ],
+        "cv_rmse": 0.4081712288666284
+      }
+    ],
+    "backward": [
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "stand_L",
+          "swing_length",
+          "attack_angle",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.4073343319115902
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "stand_L",
+          "swing_length",
+          "attack_angle",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.40794518152528475
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "stand_L",
+          "attack_angle",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.4088507804244058
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "stand_L",
+          "attack_angle",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.4114920159136475
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "stand_L",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.4068782636523129
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "stand_L"
+        ],
+        "cv_rmse": 0.4056225198465786
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle"
+        ],
+        "cv_rmse": 0.4142811376608863
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle"
+        ],
+        "cv_rmse": 0.48062138363020995
+      },
+      {
+        "features": [
+          "launch_angle"
+        ],
+        "cv_rmse": 0.510378134660259
+      }
+    ],
+    "selected_features": [
+      "launch_speed",
+      "launch_angle",
+      "spray_angle",
+      "stand_L"
+    ],
+    "selected_direction": "backward",
+    "selected_search_cv_rmse": 0.4056225198465786
+  },
+  "lightgbm": {
+    "forward": [
+      {
+        "features": [],
+        "cv_rmse": 0.571884626043231
+      },
+      {
+        "features": [
+          "launch_angle"
+        ],
+        "cv_rmse": 0.5105426003411913
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed"
+        ],
+        "cv_rmse": 0.43239822046785065
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle"
+        ],
+        "cv_rmse": 0.4236591339250166
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L"
+        ],
+        "cv_rmse": 0.3885205166317288
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.3853908511891962
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "swing_path_tilt",
+          "swing_length"
+        ],
+        "cv_rmse": 0.3865037893285347
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "swing_path_tilt",
+          "swing_length",
+          "attack_direction"
+        ],
+        "cv_rmse": 0.385895721709105
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "swing_path_tilt",
+          "swing_length",
+          "attack_direction",
+          "attack_angle"
+        ],
+        "cv_rmse": 0.38727297968149776
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "swing_path_tilt",
+          "swing_length",
+          "attack_direction",
+          "attack_angle",
+          "bat_speed"
+        ],
+        "cv_rmse": 0.38885688556444364
+      }
+    ],
+    "backward": [
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "stand_L",
+          "swing_length",
+          "attack_angle",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.3884028765800615
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "stand_L",
+          "swing_length",
+          "attack_angle",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.3886681042457319
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "stand_L",
+          "swing_length",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.3855665149055109
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "stand_L",
+          "swing_length",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.38674817824355917
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "stand_L",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.3848725852705755
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "stand_L"
+        ],
+        "cv_rmse": 0.3885090764041116
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle"
+        ],
+        "cv_rmse": 0.4094976295117688
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle"
+        ],
+        "cv_rmse": 0.43239822046785065
+      },
+      {
+        "features": [
+          "launch_angle"
+        ],
+        "cv_rmse": 0.5105426003411913
+      }
+    ],
+    "selected_features": [
+      "launch_speed",
+      "launch_angle",
+      "spray_angle",
+      "stand_L",
+      "swing_path_tilt"
+    ],
+    "selected_direction": "backward",
+    "selected_search_cv_rmse": 0.3848725852705755
+  },
+  "catboost": {
+    "forward": [
+      {
+        "features": [],
+        "cv_rmse": 0.571884626043231
+      },
+      {
+        "features": [
+          "launch_angle"
+        ],
+        "cv_rmse": 0.510090990386336
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed"
+        ],
+        "cv_rmse": 0.43199777549063595
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle"
+        ],
+        "cv_rmse": 0.4030928010701466
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L"
+        ],
+        "cv_rmse": 0.39672503915382923
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "attack_angle"
+        ],
+        "cv_rmse": 0.3978105302751058
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "attack_angle",
+          "attack_direction"
+        ],
+        "cv_rmse": 0.39823133927052956
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "attack_angle",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.3996055483790028
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "attack_angle",
+          "attack_direction",
+          "swing_path_tilt",
+          "swing_length"
+        ],
+        "cv_rmse": 0.40103528276866507
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "attack_angle",
+          "attack_direction",
+          "swing_path_tilt",
+          "swing_length",
+          "bat_speed"
+        ],
+        "cv_rmse": 0.40074358423574474
+      }
+    ],
+    "backward": [
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "stand_L",
+          "swing_length",
+          "attack_angle",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.40016956812393195
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "stand_L",
+          "swing_length",
+          "attack_angle",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.4004529082874658
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "stand_L",
+          "swing_length",
+          "attack_angle",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.39989372208038715
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "stand_L",
+          "attack_angle",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.39904403027629615
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "stand_L",
+          "attack_angle"
+        ],
+        "cv_rmse": 0.3975366564288428
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "stand_L"
+        ],
+        "cv_rmse": 0.39707577695306023
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle"
+        ],
+        "cv_rmse": 0.4029536787729296
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle"
+        ],
+        "cv_rmse": 0.4317705224403975
+      },
+      {
+        "features": [
+          "launch_angle"
+        ],
+        "cv_rmse": 0.510090990386336
+      }
+    ],
+    "selected_features": [
+      "launch_angle",
+      "launch_speed",
+      "spray_angle",
+      "stand_L"
+    ],
+    "selected_direction": "forward",
+    "selected_search_cv_rmse": 0.39672503915382923
+  },
+  "random_forest": {
+    "forward": [
+      {
+        "features": [],
+        "cv_rmse": 0.571884626043231
+      },
+      {
+        "features": [
+          "launch_angle"
+        ],
+        "cv_rmse": 0.5105702470341557
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed"
+        ],
+        "cv_rmse": 0.435492870121127
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle"
+        ],
+        "cv_rmse": 0.3999153255484299
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L"
+        ],
+        "cv_rmse": 0.39278640516761193
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.39275488569768524
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "swing_path_tilt",
+          "swing_length"
+        ],
+        "cv_rmse": 0.39301043686557136
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "swing_path_tilt",
+          "swing_length",
+          "attack_direction"
+        ],
+        "cv_rmse": 0.39351991254260016
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "swing_path_tilt",
+          "swing_length",
+          "attack_direction",
+          "bat_speed"
+        ],
+        "cv_rmse": 0.3940935357688369
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "stand_L",
+          "swing_path_tilt",
+          "swing_length",
+          "attack_direction",
+          "bat_speed",
+          "attack_angle"
+        ],
+        "cv_rmse": 0.3948282964082472
+      }
+    ],
+    "backward": [
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "stand_L",
+          "swing_length",
+          "attack_angle",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.39483752700124425
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "stand_L",
+          "swing_length",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.3940867023838585
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "stand_L",
+          "swing_length",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.3934533091123086
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "stand_L",
+          "swing_length",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.39300866534825407
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "stand_L",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.39275198861365296
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "stand_L"
+        ],
+        "cv_rmse": 0.39284257939091116
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle"
+        ],
+        "cv_rmse": 0.39987306881227025
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle"
+        ],
+        "cv_rmse": 0.43549962716498053
+      },
+      {
+        "features": [
+          "launch_angle"
+        ],
+        "cv_rmse": 0.5105702470341557
+      }
+    ],
+    "selected_features": [
+      "launch_speed",
+      "launch_angle",
+      "spray_angle",
+      "stand_L",
+      "swing_path_tilt"
+    ],
+    "selected_direction": "backward",
+    "selected_search_cv_rmse": 0.39275198861365296
+  },
+  "neural_net": {
+    "forward": [
+      {
+        "features": [],
+        "cv_rmse": 0.571884626043231
+      },
+      {
+        "features": [
+          "launch_angle"
+        ],
+        "cv_rmse": 0.5107063207097311
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed"
+        ],
+        "cv_rmse": 0.4427058548330779
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle"
+        ],
+        "cv_rmse": 0.4288171413998273
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.42598676226288706
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "swing_path_tilt",
+          "attack_angle"
+        ],
+        "cv_rmse": 0.4278787712744904
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "swing_path_tilt",
+          "attack_angle",
+          "attack_direction"
+        ],
+        "cv_rmse": 0.429052852250719
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "swing_path_tilt",
+          "attack_angle",
+          "attack_direction",
+          "bat_speed"
+        ],
+        "cv_rmse": 0.43258755559295786
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "swing_path_tilt",
+          "attack_angle",
+          "attack_direction",
+          "bat_speed",
+          "swing_length"
+        ],
+        "cv_rmse": 0.4248192180347196
+      },
+      {
+        "features": [
+          "launch_angle",
+          "launch_speed",
+          "spray_angle",
+          "swing_path_tilt",
+          "attack_angle",
+          "attack_direction",
+          "bat_speed",
+          "swing_length",
+          "stand_L"
+        ],
+        "cv_rmse": 0.42693516950800736
+      }
+    ],
+    "backward": [
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "stand_L",
+          "swing_length",
+          "attack_angle",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.42964661002860965
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "stand_L",
+          "swing_length",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.4281904964954659
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "swing_length",
+          "attack_direction",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.4220771722567024
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "swing_length",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.4276623123750836
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "bat_speed",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.42201396642901934
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle",
+          "swing_path_tilt"
+        ],
+        "cv_rmse": 0.42643059853596005
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle",
+          "spray_angle"
+        ],
+        "cv_rmse": 0.425811587720243
+      },
+      {
+        "features": [
+          "launch_speed",
+          "launch_angle"
+        ],
+        "cv_rmse": 0.4406902055555212
+      },
+      {
+        "features": [
+          "launch_angle"
+        ],
+        "cv_rmse": 0.5107063207097311
+      }
+    ],
+    "selected_features": [
+      "launch_speed",
+      "launch_angle",
+      "spray_angle",
+      "bat_speed",
+      "swing_path_tilt"
+    ],
+    "selected_direction": "backward",
+    "selected_search_cv_rmse": 0.42201396642901934
+  }
+}

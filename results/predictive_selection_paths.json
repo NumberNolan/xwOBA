@@ -1,0 +1,1787 @@
+{
+  "linear_regression": {
+    "forward": [
+      {
+        "features": [],
+        "cv_rmse": 0.0556553353852858
+      },
+      {
+        "features": [
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.04571681001480175
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04443482546354712
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean"
+        ],
+        "cv_rmse": 0.04369918300506843
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean"
+        ],
+        "cv_rmse": 0.043596024495877087
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04352811697030445
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean"
+        ],
+        "cv_rmse": 0.04355517344952149
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean",
+          "launch_angle_mean"
+        ],
+        "cv_rmse": 0.04363120660636696
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean",
+          "launch_angle_mean",
+          "spray_angle_mean"
+        ],
+        "cv_rmse": 0.043776203441007744
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "attack_angle_mean"
+        ],
+        "cv_rmse": 0.04394459270025477
+      }
+    ],
+    "backward": [
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_angle_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.043944592700254775
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04377620344100775
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04363120660636696
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04355517344952149
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04352811697030445
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04359602449587709
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04369918300506843
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04443482546354712
+      },
+      {
+        "features": [
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.04571681001480175
+      }
+    ],
+    "selected_features": [
+      "bat_speed_mean",
+      "attack_direction_mean",
+      "launch_speed_mean",
+      "stand_L_mean",
+      "swing_path_tilt_mean"
+    ],
+    "selected_direction": "forward",
+    "selected_cv_rmse": 0.04352811697030445
+  },
+  "lasso": {
+    "forward": [
+      {
+        "features": [],
+        "cv_rmse": 0.0556553353852858
+      },
+      {
+        "features": [
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.04572883024125095
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04445034724633007
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean"
+        ],
+        "cv_rmse": 0.043714680915959966
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean"
+        ],
+        "cv_rmse": 0.0436173291426529
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.0435482465852603
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean"
+        ],
+        "cv_rmse": 0.043578580151925665
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean",
+          "launch_angle_mean"
+        ],
+        "cv_rmse": 0.043641515871577205
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean",
+          "launch_angle_mean",
+          "spray_angle_mean"
+        ],
+        "cv_rmse": 0.0437065101477963
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "attack_angle_mean"
+        ],
+        "cv_rmse": 0.04378120194012932
+      }
+    ],
+    "backward": [
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_angle_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04378093014231267
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.043706231614044355
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04364149397168015
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04357862644222784
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.043548285784178145
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04361735923599093
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04371469023518896
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04445034724633007
+      },
+      {
+        "features": [
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.04572883024125095
+      }
+    ],
+    "selected_features": [
+      "bat_speed_mean",
+      "attack_direction_mean",
+      "launch_speed_mean",
+      "stand_L_mean",
+      "swing_path_tilt_mean"
+    ],
+    "selected_direction": "forward",
+    "selected_cv_rmse": 0.0435482465852603
+  },
+  "ridge": {
+    "forward": [
+      {
+        "features": [],
+        "cv_rmse": 0.0556553353852858
+      },
+      {
+        "features": [
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.04572427724308194
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04444069594841704
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean"
+        ],
+        "cv_rmse": 0.04369961405095274
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean"
+        ],
+        "cv_rmse": 0.04359644028709355
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.043525712740231225
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean"
+        ],
+        "cv_rmse": 0.0435404902273296
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean",
+          "launch_angle_mean"
+        ],
+        "cv_rmse": 0.04360046271251802
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean",
+          "launch_angle_mean",
+          "spray_angle_mean"
+        ],
+        "cv_rmse": 0.04373798632575406
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "attack_angle_mean"
+        ],
+        "cv_rmse": 0.04390181223797015
+      }
+    ],
+    "backward": [
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_angle_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.043901812237970135
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04373798632575406
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04360046271251803
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.0435404902273296
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.043525712740231225
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04359644028709355
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04369961405095274
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04444069594841704
+      },
+      {
+        "features": [
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.04572427724308194
+      }
+    ],
+    "selected_features": [
+      "bat_speed_mean",
+      "attack_direction_mean",
+      "launch_speed_mean",
+      "stand_L_mean",
+      "swing_path_tilt_mean"
+    ],
+    "selected_direction": "forward",
+    "selected_cv_rmse": 0.043525712740231225
+  },
+  "elasticnet": {
+    "forward": [
+      {
+        "features": [],
+        "cv_rmse": 0.0556553353852858
+      },
+      {
+        "features": [
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.045731595654249814
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04445299181672382
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean"
+        ],
+        "cv_rmse": 0.04371513676004356
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean"
+        ],
+        "cv_rmse": 0.04361758156197297
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04354792453067442
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean"
+        ],
+        "cv_rmse": 0.04357794813217893
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean",
+          "launch_angle_mean"
+        ],
+        "cv_rmse": 0.0436391475346792
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean",
+          "launch_angle_mean",
+          "spray_angle_mean"
+        ],
+        "cv_rmse": 0.04370777853456891
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "attack_angle_mean"
+        ],
+        "cv_rmse": 0.043784478639504056
+      }
+    ],
+    "backward": [
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_angle_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04378432520799843
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.043707612174230366
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04363918450218439
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.043578006058868274
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04354795238522322
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04361760836194042
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.0437151559743395
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04445299181672382
+      },
+      {
+        "features": [
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.045731595654249814
+      }
+    ],
+    "selected_features": [
+      "bat_speed_mean",
+      "attack_direction_mean",
+      "launch_speed_mean",
+      "stand_L_mean",
+      "swing_path_tilt_mean"
+    ],
+    "selected_direction": "forward",
+    "selected_cv_rmse": 0.04354792453067442
+  },
+  "xgboost": {
+    "forward": [
+      {
+        "features": [],
+        "cv_rmse": 0.0556553353852858
+      },
+      {
+        "features": [
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.04676279403728835
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "launch_speed_mean"
+        ],
+        "cv_rmse": 0.045204880916504375
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "launch_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04359923747514424
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "launch_speed_mean",
+          "attack_direction_mean",
+          "stand_L_mean"
+        ],
+        "cv_rmse": 0.04336699849976422
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "launch_speed_mean",
+          "attack_direction_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04362709607724042
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "launch_speed_mean",
+          "attack_direction_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "launch_angle_mean"
+        ],
+        "cv_rmse": 0.04375959753490682
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "launch_speed_mean",
+          "attack_direction_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "launch_angle_mean",
+          "attack_angle_mean"
+        ],
+        "cv_rmse": 0.043509256362930696
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "launch_speed_mean",
+          "attack_direction_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "launch_angle_mean",
+          "attack_angle_mean",
+          "swing_length_mean"
+        ],
+        "cv_rmse": 0.043658376263843064
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "launch_speed_mean",
+          "attack_direction_mean",
+          "stand_L_mean",
+          "swing_path_tilt_mean",
+          "launch_angle_mean",
+          "attack_angle_mean",
+          "swing_length_mean",
+          "spray_angle_mean"
+        ],
+        "cv_rmse": 0.043857079444032686
+      }
+    ],
+    "backward": [
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_angle_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04414693369400941
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_angle_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.043910266766384785
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_angle_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.043594302598932516
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.043611008854466345
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.043429219457513775
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04351645544307999
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04363803918764804
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.04506345105916814
+      },
+      {
+        "features": [
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.04676279403728835
+      }
+    ],
+    "selected_features": [
+      "bat_speed_mean",
+      "launch_speed_mean",
+      "attack_direction_mean",
+      "stand_L_mean"
+    ],
+    "selected_direction": "forward",
+    "selected_cv_rmse": 0.04336699849976422
+  },
+  "lightgbm": {
+    "forward": [
+      {
+        "features": [],
+        "cv_rmse": 0.0556553353852858
+      },
+      {
+        "features": [
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.0460974751610411
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04472867820449756
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_angle_mean"
+        ],
+        "cv_rmse": 0.04538760913383244
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_angle_mean",
+          "launch_speed_mean"
+        ],
+        "cv_rmse": 0.043809191648730664
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_angle_mean",
+          "launch_speed_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.043564271821748095
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_angle_mean",
+          "launch_speed_mean",
+          "swing_path_tilt_mean",
+          "stand_L_mean"
+        ],
+        "cv_rmse": 0.04376771931250489
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_angle_mean",
+          "launch_speed_mean",
+          "swing_path_tilt_mean",
+          "stand_L_mean",
+          "swing_length_mean"
+        ],
+        "cv_rmse": 0.04385526389580147
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_angle_mean",
+          "launch_speed_mean",
+          "swing_path_tilt_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_angle_mean"
+        ],
+        "cv_rmse": 0.04395607450509406
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_angle_mean",
+          "launch_speed_mean",
+          "swing_path_tilt_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_angle_mean",
+          "spray_angle_mean"
+        ],
+        "cv_rmse": 0.04403156857311413
+      }
+    ],
+    "backward": [
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_angle_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04402371515662305
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "swing_length_mean",
+          "attack_angle_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04398809809123121
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "swing_length_mean",
+          "attack_angle_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.043743413399086474
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.043669515817612324
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04353888403906015
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.043776602125685196
+      },
+      {
+        "features": [
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04416942450826959
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04472867820449756
+      },
+      {
+        "features": [
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.0460974751610411
+      }
+    ],
+    "selected_features": [
+      "launch_speed_mean",
+      "launch_angle_mean",
+      "bat_speed_mean",
+      "attack_direction_mean",
+      "swing_path_tilt_mean"
+    ],
+    "selected_direction": "backward",
+    "selected_cv_rmse": 0.04353888403906015
+  },
+  "catboost": {
+    "forward": [
+      {
+        "features": [],
+        "cv_rmse": 0.0556553353852858
+      },
+      {
+        "features": [
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.045875955894117144
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04363671808504259
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean"
+        ],
+        "cv_rmse": 0.04307883983245756
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "launch_angle_mean"
+        ],
+        "cv_rmse": 0.042902462251666995
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04315674207432653
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean"
+        ],
+        "cv_rmse": 0.04321356051255784
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean",
+          "stand_L_mean"
+        ],
+        "cv_rmse": 0.043270549132693084
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean",
+          "stand_L_mean",
+          "spray_angle_mean"
+        ],
+        "cv_rmse": 0.043363569832801596
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "swing_path_tilt_mean",
+          "swing_length_mean",
+          "stand_L_mean",
+          "spray_angle_mean",
+          "attack_angle_mean"
+        ],
+        "cv_rmse": 0.043526952778506094
+      }
+    ],
+    "backward": [
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_angle_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04339902178618058
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_angle_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04336475806847806
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_angle_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04331951293331022
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "swing_length_mean",
+          "attack_angle_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.043171274458940846
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "swing_length_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04314156154549125
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.042988290197108446
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04309505072805866
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04363671808504259
+      },
+      {
+        "features": [
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.045875955894117144
+      }
+    ],
+    "selected_features": [
+      "bat_speed_mean",
+      "attack_direction_mean",
+      "launch_speed_mean",
+      "launch_angle_mean"
+    ],
+    "selected_direction": "forward",
+    "selected_cv_rmse": 0.042902462251666995
+  },
+  "random_forest": {
+    "forward": [
+      {
+        "features": [],
+        "cv_rmse": 0.0556553353852858
+      },
+      {
+        "features": [
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.04655706069751559
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04463993759264397
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean"
+        ],
+        "cv_rmse": 0.04412100455853911
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "launch_angle_mean"
+        ],
+        "cv_rmse": 0.04404278922952998
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04399631431037293
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "swing_path_tilt_mean",
+          "stand_L_mean"
+        ],
+        "cv_rmse": 0.044024726015681435
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "swing_path_tilt_mean",
+          "stand_L_mean",
+          "swing_length_mean"
+        ],
+        "cv_rmse": 0.044054371289452526
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "swing_path_tilt_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "spray_angle_mean"
+        ],
+        "cv_rmse": 0.044080430036322456
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "swing_path_tilt_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "spray_angle_mean",
+          "attack_angle_mean"
+        ],
+        "cv_rmse": 0.04415609416389724
+      }
+    ],
+    "backward": [
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_angle_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04415608521935983
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.044080571280546196
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.044054371289452526
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04402476524559631
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.04399631431037293
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.044042789229529984
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04412100455853911
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.04463993759264397
+      },
+      {
+        "features": [
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.04655706069751559
+      }
+    ],
+    "selected_features": [
+      "bat_speed_mean",
+      "attack_direction_mean",
+      "launch_speed_mean",
+      "launch_angle_mean",
+      "swing_path_tilt_mean"
+    ],
+    "selected_direction": "forward",
+    "selected_cv_rmse": 0.04399631431037293
+  },
+  "neural_net": {
+    "forward": [
+      {
+        "features": [],
+        "cv_rmse": 0.0556553353852858
+      },
+      {
+        "features": [
+          "launch_speed_mean"
+        ],
+        "cv_rmse": 0.04987920568825168
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.07507434264931392
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean"
+        ],
+        "cv_rmse": 0.06274734048610818
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "spray_angle_mean"
+        ],
+        "cv_rmse": 0.07128488237911013
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "spray_angle_mean",
+          "attack_angle_mean"
+        ],
+        "cv_rmse": 0.09878502208210695
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "spray_angle_mean",
+          "attack_angle_mean",
+          "swing_length_mean"
+        ],
+        "cv_rmse": 0.14619210295254936
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "spray_angle_mean",
+          "attack_angle_mean",
+          "swing_length_mean",
+          "attack_direction_mean"
+        ],
+        "cv_rmse": 0.1389100804007385
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "spray_angle_mean",
+          "attack_angle_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "launch_angle_mean"
+        ],
+        "cv_rmse": 0.11331104142078616
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "spray_angle_mean",
+          "attack_angle_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "launch_angle_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.0762722527598966
+      }
+    ],
+    "backward": [
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_angle_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.0804110766726371
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "launch_angle_mean",
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.10187753046365496
+      },
+      {
+        "features": [
+          "launch_speed_mean",
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.12269458315969488
+      },
+      {
+        "features": [
+          "spray_angle_mean",
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.11673792245755486
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "stand_L_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.08206581231159632
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "swing_length_mean",
+          "attack_direction_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.07004706576127309
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "swing_length_mean",
+          "swing_path_tilt_mean"
+        ],
+        "cv_rmse": 0.07688273761122415
+      },
+      {
+        "features": [
+          "bat_speed_mean",
+          "swing_length_mean"
+        ],
+        "cv_rmse": 0.08865591902606539
+      },
+      {
+        "features": [
+          "bat_speed_mean"
+        ],
+        "cv_rmse": 0.05328780869387595
+      }
+    ],
+    "selected_features": [
+      "launch_speed_mean"
+    ],
+    "selected_direction": "forward",
+    "selected_cv_rmse": 0.04987920568825168
+  }
+}

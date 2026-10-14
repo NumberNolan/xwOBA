@@ -1,0 +1,14 @@
+[2026-09-11 15:59:45] Loading modeling dataset...
+[2026-09-11 15:59:45] Train rows: 316619  Test rows: 79155
+[2026-09-11 15:59:45] === Random Forest: RandomizedSearchCV (40 iters x 5-fold) ===
+[2026-09-11 17:03:08] Random Forest search done in 3803.3s
+[2026-09-11 17:03:08] Best CV RMSE: 0.36946
+[2026-09-11 17:03:08] Best params: {'max_depth': 20, 'max_features': 0.6, 'max_samples': np.float64(0.9753571532049581), 'min_samples_leaf': 8, 'min_samples_split': 22, 'n_estimators': 302}
+[2026-09-11 17:03:11] Random Forest TUNED test metrics: {'test_rmse': 0.3684427330023167, 'test_mae': 0.23991395737427246, 'test_r2': 0.5862623885248301, 'test_corr': 0.7657146717263319}
+[2026-09-11 17:03:11] Random Forest prior (untuned) test metrics: {'test_rmse': 0.37210070471714896, 'test_mae': 0.2358701630034039, 'test_r2': 0.5780062704860707, 'test_corr': 0.7605615001895862}
+[2026-09-11 17:03:11] === SUMMARY (test RMSE, lower is better) ===
+[2026-09-11 17:03:11]   statcast xwOBA benchmark      : 0.43013
+[2026-09-11 17:03:11]   lightgbm tuned (current best) : 0.36611
+[2026-09-11 17:03:11]   random_forest untuned         : 0.37210
+[2026-09-11 17:03:11]   random_forest TUNED           : 0.36844
+[2026-09-11 17:03:11] DONE.

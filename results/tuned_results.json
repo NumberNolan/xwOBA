@@ -1,0 +1,51 @@
+{
+  "xgboost_tuned": {
+    "features": [
+      "launch_speed",
+      "launch_angle",
+      "spray_angle",
+      "stand_L"
+    ],
+    "best_params": {
+      "colsample_bytree": 0.8658238776498202,
+      "gamma": 0.638448647112328,
+      "learning_rate": 0.013916725661203106,
+      "max_depth": 9,
+      "min_child_weight": 5,
+      "n_estimators": 979,
+      "reg_alpha": 0.05199673923878321,
+      "reg_lambda": 1.008055099993063,
+      "subsample": 0.9018171496338729
+    },
+    "cv_rmse": 0.3764308475960672,
+    "test_rmse": 0.37546052495900184,
+    "test_mae": 0.2593066996931909,
+    "test_r2": 0.5703512241350978,
+    "test_corr": 0.7557054309390867
+  },
+  "lightgbm_tuned": {
+    "features": [
+      "launch_speed",
+      "launch_angle",
+      "spray_angle",
+      "stand_L",
+      "swing_path_tilt"
+    ],
+    "best_params": {
+      "colsample_bytree": 0.9330880728874675,
+      "learning_rate": 0.05859268690985102,
+      "max_depth": 12,
+      "min_child_samples": 7,
+      "n_estimators": 861,
+      "num_leaves": 67,
+      "reg_alpha": 7.579479953348009,
+      "reg_lambda": 2.1368329072358767,
+      "subsample": 0.6849356442713105
+    },
+    "cv_rmse": 0.36719095265878837,
+    "test_rmse": 0.36611073499838986,
+    "test_mae": 0.23923115727846225,
+    "test_r2": 0.5914831830441142,
+    "test_corr": 0.7690971832025962
+  }
+}

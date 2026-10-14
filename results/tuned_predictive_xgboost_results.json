@@ -1,0 +1,26 @@
+{
+  "predictive_xgboost_tuned_fixed_features": {
+    "features": [
+      "bat_speed_mean",
+      "attack_direction_mean",
+      "launch_speed_mean",
+      "launch_angle_mean"
+    ],
+    "best_params": {
+      "colsample_bytree": 0.6041664773013142,
+      "gamma": 0.016090114763485985,
+      "learning_rate": 0.03221961227560633,
+      "max_depth": 4,
+      "min_child_weight": 2,
+      "n_estimators": 578,
+      "reg_alpha": 0.009342607478572521,
+      "reg_lambda": 4.356262418008069,
+      "subsample": 0.5967332311822868
+    },
+    "cv_rmse": 0.043655669028300634,
+    "test_rmse": 0.04196473210275783,
+    "test_mae": 0.03350413148519065,
+    "test_r2": 0.3993101384757741,
+    "test_corr": 0.6367019912741931
+  }
+}

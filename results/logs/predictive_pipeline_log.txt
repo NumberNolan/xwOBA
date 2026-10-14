@@ -1,0 +1,226 @@
+[2026-09-11 21:19:43] Total batter-transitions: 799
+[2026-09-11 21:19:43] Train (2023->24 + 2024->25): 511  Test (2025->26, held out): 288
+[2026-09-11 21:19:43] BENCHMARK Statcast xwOBAcon (season N) -> actual (N+1): {'test_rmse': 0.047670069080200744, 'test_mae': 0.038559722222222224, 'test_r2': 0.22487284003690822, 'test_corr': 0.595476770755478}
+[2026-09-11 21:19:43] BENCHMARK Custom EXPLANATORY xwOBAcon (season N) -> actual (N+1): {'test_rmse': 0.05032803021180146, 'test_mae': 0.040217361111111107, 'test_r2': 0.13602483714224467, 'test_corr': 0.5574088389684065}
+[2026-09-11 21:19:43] Tuning linear regularization strengths once on full feature set...
+[2026-09-11 21:19:43] Alphas: {'lasso_alpha': np.float64(0.0007854985695479085), 'ridge_alpha': np.float64(10.0), 'enet_alpha': np.float64(0.007325585949323612), 'enet_l1_ratio': np.float64(0.1)}
+[2026-09-11 21:19:43] === linear_regression: forward selection ===
+[2026-09-11 21:19:44]   forward  n=0 rmse=0.05566  ()
+[2026-09-11 21:19:44]   forward  n=1 rmse=0.04572  ('bat_speed_mean',)
+[2026-09-11 21:19:44]   forward  n=2 rmse=0.04443  ('bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:19:44]   forward  n=3 rmse=0.04370  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean')
+[2026-09-11 21:19:44]   forward  n=4 rmse=0.04360  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean')
+[2026-09-11 21:19:44]   forward  n=5 rmse=0.04353  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:44]   forward  n=6 rmse=0.04356  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'swing_length_mean')
+[2026-09-11 21:19:44]   forward  n=7 rmse=0.04363  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'swing_length_mean', 'launch_angle_mean')
+[2026-09-11 21:19:44]   forward  n=8 rmse=0.04378  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'swing_length_mean', 'launch_angle_mean', 'spray_angle_mean')
+[2026-09-11 21:19:44]   forward  n=9 rmse=0.04394  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'swing_length_mean', 'launch_angle_mean', 'spray_angle_mean', 'attack_angle_mean')
+[2026-09-11 21:19:44] === linear_regression: backward elimination ===
+[2026-09-11 21:19:44]   backward n=9 rmse=0.04394  ('launch_speed_mean', 'launch_angle_mean', 'spray_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_angle_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:44]   backward n=8 rmse=0.04378  ('launch_speed_mean', 'launch_angle_mean', 'spray_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:44]   backward n=7 rmse=0.04363  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:44]   backward n=6 rmse=0.04356  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:44]   backward n=5 rmse=0.04353  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:44]   backward n=4 rmse=0.04360  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean', 'attack_direction_mean')
+[2026-09-11 21:19:44]   backward n=3 rmse=0.04370  ('launch_speed_mean', 'bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:19:44]   backward n=2 rmse=0.04443  ('bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:19:44]   backward n=1 rmse=0.04572  ('bat_speed_mean',)
+[2026-09-11 21:19:44] linear_regression: SELECTED (forward) ['bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean'] cv_rmse=0.04353 [1.0s]
+[2026-09-11 21:19:44] linear_regression: TEST {'test_rmse': 0.043567148789999156, 'test_mae': 0.03543664058737584, 'test_r2': 0.35255978773570784, 'test_corr': 0.6020983995815425}
+[2026-09-11 21:19:44] === lasso: forward selection ===
+[2026-09-11 21:19:45]   forward  n=0 rmse=0.05566  ()
+[2026-09-11 21:19:45]   forward  n=1 rmse=0.04573  ('bat_speed_mean',)
+[2026-09-11 21:19:45]   forward  n=2 rmse=0.04445  ('bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:19:45]   forward  n=3 rmse=0.04371  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean')
+[2026-09-11 21:19:45]   forward  n=4 rmse=0.04362  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean')
+[2026-09-11 21:19:45]   forward  n=5 rmse=0.04355  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:45]   forward  n=6 rmse=0.04358  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'swing_length_mean')
+[2026-09-11 21:19:45]   forward  n=7 rmse=0.04364  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'swing_length_mean', 'launch_angle_mean')
+[2026-09-11 21:19:45]   forward  n=8 rmse=0.04371  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'swing_length_mean', 'launch_angle_mean', 'spray_angle_mean')
+[2026-09-11 21:19:45]   forward  n=9 rmse=0.04378  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'swing_length_mean', 'launch_angle_mean', 'spray_angle_mean', 'attack_angle_mean')
+[2026-09-11 21:19:45] === lasso: backward elimination ===
+[2026-09-11 21:19:45]   backward n=9 rmse=0.04378  ('launch_speed_mean', 'launch_angle_mean', 'spray_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_angle_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:45]   backward n=8 rmse=0.04371  ('launch_speed_mean', 'launch_angle_mean', 'spray_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:45]   backward n=7 rmse=0.04364  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:45]   backward n=6 rmse=0.04358  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:45]   backward n=5 rmse=0.04355  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:45]   backward n=4 rmse=0.04362  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean', 'attack_direction_mean')
+[2026-09-11 21:19:45]   backward n=3 rmse=0.04371  ('launch_speed_mean', 'bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:19:45]   backward n=2 rmse=0.04445  ('bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:19:45]   backward n=1 rmse=0.04573  ('bat_speed_mean',)
+[2026-09-11 21:19:45] lasso: SELECTED (forward) ['bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean'] cv_rmse=0.04355 [0.9s]
+[2026-09-11 21:19:45] lasso: TEST {'test_rmse': 0.043476813587661436, 'test_mae': 0.035389901470298885, 'test_r2': 0.355241900705323, 'test_corr': 0.6017323045500977}
+[2026-09-11 21:19:45] === ridge: forward selection ===
+[2026-09-11 21:19:46]   forward  n=0 rmse=0.05566  ()
+[2026-09-11 21:19:46]   forward  n=1 rmse=0.04572  ('bat_speed_mean',)
+[2026-09-11 21:19:46]   forward  n=2 rmse=0.04444  ('bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:19:46]   forward  n=3 rmse=0.04370  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean')
+[2026-09-11 21:19:46]   forward  n=4 rmse=0.04360  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean')
+[2026-09-11 21:19:46]   forward  n=5 rmse=0.04353  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:46]   forward  n=6 rmse=0.04354  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'swing_length_mean')
+[2026-09-11 21:19:46]   forward  n=7 rmse=0.04360  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'swing_length_mean', 'launch_angle_mean')
+[2026-09-11 21:19:46]   forward  n=8 rmse=0.04374  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'swing_length_mean', 'launch_angle_mean', 'spray_angle_mean')
+[2026-09-11 21:19:46]   forward  n=9 rmse=0.04390  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'swing_length_mean', 'launch_angle_mean', 'spray_angle_mean', 'attack_angle_mean')
+[2026-09-11 21:19:46] === ridge: backward elimination ===
+[2026-09-11 21:19:46]   backward n=9 rmse=0.04390  ('launch_speed_mean', 'launch_angle_mean', 'spray_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_angle_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:46]   backward n=8 rmse=0.04374  ('launch_speed_mean', 'launch_angle_mean', 'spray_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:46]   backward n=7 rmse=0.04360  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:46]   backward n=6 rmse=0.04354  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:46]   backward n=5 rmse=0.04353  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:46]   backward n=4 rmse=0.04360  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean', 'attack_direction_mean')
+[2026-09-11 21:19:46]   backward n=3 rmse=0.04370  ('launch_speed_mean', 'bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:19:46]   backward n=2 rmse=0.04444  ('bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:19:46]   backward n=1 rmse=0.04572  ('bat_speed_mean',)
+[2026-09-11 21:19:46] ridge: SELECTED (forward) ['bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean'] cv_rmse=0.04353 [0.9s]
+[2026-09-11 21:19:46] ridge: TEST {'test_rmse': 0.04353766303526425, 'test_mae': 0.03544024610877632, 'test_r2': 0.3534358516415156, 'test_corr': 0.6018507455766235}
+[2026-09-11 21:19:46] === elasticnet: forward selection ===
+[2026-09-11 21:19:47]   forward  n=0 rmse=0.05566  ()
+[2026-09-11 21:19:47]   forward  n=1 rmse=0.04573  ('bat_speed_mean',)
+[2026-09-11 21:19:47]   forward  n=2 rmse=0.04445  ('bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:19:47]   forward  n=3 rmse=0.04372  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean')
+[2026-09-11 21:19:47]   forward  n=4 rmse=0.04362  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean')
+[2026-09-11 21:19:47]   forward  n=5 rmse=0.04355  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:47]   forward  n=6 rmse=0.04358  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'swing_length_mean')
+[2026-09-11 21:19:47]   forward  n=7 rmse=0.04364  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'swing_length_mean', 'launch_angle_mean')
+[2026-09-11 21:19:47]   forward  n=8 rmse=0.04371  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'swing_length_mean', 'launch_angle_mean', 'spray_angle_mean')
+[2026-09-11 21:19:47]   forward  n=9 rmse=0.04378  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'swing_length_mean', 'launch_angle_mean', 'spray_angle_mean', 'attack_angle_mean')
+[2026-09-11 21:19:47] === elasticnet: backward elimination ===
+[2026-09-11 21:19:47]   backward n=9 rmse=0.04378  ('launch_speed_mean', 'launch_angle_mean', 'spray_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_angle_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:47]   backward n=8 rmse=0.04371  ('launch_speed_mean', 'launch_angle_mean', 'spray_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:47]   backward n=7 rmse=0.04364  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:47]   backward n=6 rmse=0.04358  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:47]   backward n=5 rmse=0.04355  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:47]   backward n=4 rmse=0.04362  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean', 'attack_direction_mean')
+[2026-09-11 21:19:47]   backward n=3 rmse=0.04372  ('launch_speed_mean', 'bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:19:47]   backward n=2 rmse=0.04445  ('bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:19:47]   backward n=1 rmse=0.04573  ('bat_speed_mean',)
+[2026-09-11 21:19:47] elasticnet: SELECTED (forward) ['bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'stand_L_mean', 'swing_path_tilt_mean'] cv_rmse=0.04355 [0.9s]
+[2026-09-11 21:19:47] elasticnet: TEST {'test_rmse': 0.043475576903373635, 'test_mae': 0.0353968171952891, 'test_r2': 0.3552785800663283, 'test_corr': 0.6016787381031525}
+[2026-09-11 21:19:47] === xgboost: forward selection ===
+[2026-09-11 21:19:52]   forward  n=0 rmse=0.05566  ()
+[2026-09-11 21:19:52]   forward  n=1 rmse=0.04676  ('bat_speed_mean',)
+[2026-09-11 21:19:52]   forward  n=2 rmse=0.04520  ('bat_speed_mean', 'launch_speed_mean')
+[2026-09-11 21:19:52]   forward  n=3 rmse=0.04360  ('bat_speed_mean', 'launch_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:19:52]   forward  n=4 rmse=0.04337  ('bat_speed_mean', 'launch_speed_mean', 'attack_direction_mean', 'stand_L_mean')
+[2026-09-11 21:19:52]   forward  n=5 rmse=0.04363  ('bat_speed_mean', 'launch_speed_mean', 'attack_direction_mean', 'stand_L_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:52]   forward  n=6 rmse=0.04376  ('bat_speed_mean', 'launch_speed_mean', 'attack_direction_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'launch_angle_mean')
+[2026-09-11 21:19:52]   forward  n=7 rmse=0.04351  ('bat_speed_mean', 'launch_speed_mean', 'attack_direction_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'launch_angle_mean', 'attack_angle_mean')
+[2026-09-11 21:19:52]   forward  n=8 rmse=0.04366  ('bat_speed_mean', 'launch_speed_mean', 'attack_direction_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'launch_angle_mean', 'attack_angle_mean', 'swing_length_mean')
+[2026-09-11 21:19:52]   forward  n=9 rmse=0.04386  ('bat_speed_mean', 'launch_speed_mean', 'attack_direction_mean', 'stand_L_mean', 'swing_path_tilt_mean', 'launch_angle_mean', 'attack_angle_mean', 'swing_length_mean', 'spray_angle_mean')
+[2026-09-11 21:19:52] === xgboost: backward elimination ===
+[2026-09-11 21:19:57]   backward n=9 rmse=0.04415  ('launch_speed_mean', 'launch_angle_mean', 'spray_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_angle_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:57]   backward n=8 rmse=0.04391  ('launch_speed_mean', 'launch_angle_mean', 'spray_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_angle_mean', 'attack_direction_mean')
+[2026-09-11 21:19:57]   backward n=7 rmse=0.04359  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_angle_mean', 'attack_direction_mean')
+[2026-09-11 21:19:57]   backward n=6 rmse=0.04361  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean')
+[2026-09-11 21:19:57]   backward n=5 rmse=0.04343  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'attack_direction_mean')
+[2026-09-11 21:19:57]   backward n=4 rmse=0.04352  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:19:57]   backward n=3 rmse=0.04364  ('launch_speed_mean', 'bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:19:57]   backward n=2 rmse=0.04506  ('launch_speed_mean', 'bat_speed_mean')
+[2026-09-11 21:19:57]   backward n=1 rmse=0.04676  ('bat_speed_mean',)
+[2026-09-11 21:19:57] xgboost: SELECTED (forward) ['bat_speed_mean', 'launch_speed_mean', 'attack_direction_mean', 'stand_L_mean'] cv_rmse=0.04337 [9.7s]
+[2026-09-11 21:19:57] xgboost: TEST {'test_rmse': 0.042143058755971116, 'test_mae': 0.03358713123765257, 'test_r2': 0.3941940991156726, 'test_corr': 0.635196698079777}
+[2026-09-11 21:19:57] === lightgbm: forward selection ===
+[2026-09-11 21:19:59]   forward  n=0 rmse=0.05566  ()
+[2026-09-11 21:19:59]   forward  n=1 rmse=0.04610  ('bat_speed_mean',)
+[2026-09-11 21:19:59]   forward  n=2 rmse=0.04473  ('bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:19:59]   forward  n=3 rmse=0.04539  ('bat_speed_mean', 'attack_direction_mean', 'launch_angle_mean')
+[2026-09-11 21:19:59]   forward  n=4 rmse=0.04381  ('bat_speed_mean', 'attack_direction_mean', 'launch_angle_mean', 'launch_speed_mean')
+[2026-09-11 21:19:59]   forward  n=5 rmse=0.04356  ('bat_speed_mean', 'attack_direction_mean', 'launch_angle_mean', 'launch_speed_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:19:59]   forward  n=6 rmse=0.04377  ('bat_speed_mean', 'attack_direction_mean', 'launch_angle_mean', 'launch_speed_mean', 'swing_path_tilt_mean', 'stand_L_mean')
+[2026-09-11 21:19:59]   forward  n=7 rmse=0.04386  ('bat_speed_mean', 'attack_direction_mean', 'launch_angle_mean', 'launch_speed_mean', 'swing_path_tilt_mean', 'stand_L_mean', 'swing_length_mean')
+[2026-09-11 21:19:59]   forward  n=8 rmse=0.04396  ('bat_speed_mean', 'attack_direction_mean', 'launch_angle_mean', 'launch_speed_mean', 'swing_path_tilt_mean', 'stand_L_mean', 'swing_length_mean', 'attack_angle_mean')
+[2026-09-11 21:19:59]   forward  n=9 rmse=0.04403  ('bat_speed_mean', 'attack_direction_mean', 'launch_angle_mean', 'launch_speed_mean', 'swing_path_tilt_mean', 'stand_L_mean', 'swing_length_mean', 'attack_angle_mean', 'spray_angle_mean')
+[2026-09-11 21:19:59] === lightgbm: backward elimination ===
+[2026-09-11 21:20:02]   backward n=9 rmse=0.04402  ('launch_speed_mean', 'launch_angle_mean', 'spray_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_angle_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:20:02]   backward n=8 rmse=0.04399  ('launch_speed_mean', 'launch_angle_mean', 'spray_angle_mean', 'bat_speed_mean', 'swing_length_mean', 'attack_angle_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:20:02]   backward n=7 rmse=0.04374  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'swing_length_mean', 'attack_angle_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:20:02]   backward n=6 rmse=0.04367  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:20:02]   backward n=5 rmse=0.04354  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:20:02]   backward n=4 rmse=0.04378  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:20:02]   backward n=3 rmse=0.04417  ('launch_angle_mean', 'bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:20:02]   backward n=2 rmse=0.04473  ('bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:20:02]   backward n=1 rmse=0.04610  ('bat_speed_mean',)
+[2026-09-11 21:20:02] lightgbm: SELECTED (backward) ['launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'attack_direction_mean', 'swing_path_tilt_mean'] cv_rmse=0.04354 [5.7s]
+[2026-09-11 21:20:02] lightgbm: TEST {'test_rmse': 0.042894437016267425, 'test_mae': 0.034075180817982, 'test_r2': 0.3723994199726298, 'test_corr': 0.6173968409985509}
+[2026-09-11 21:20:02] === catboost: forward selection ===
+[2026-09-11 21:20:17]   forward  n=0 rmse=0.05566  ()
+[2026-09-11 21:20:17]   forward  n=1 rmse=0.04588  ('bat_speed_mean',)
+[2026-09-11 21:20:17]   forward  n=2 rmse=0.04364  ('bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:20:17]   forward  n=3 rmse=0.04308  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean')
+[2026-09-11 21:20:17]   forward  n=4 rmse=0.04290  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'launch_angle_mean')
+[2026-09-11 21:20:17]   forward  n=5 rmse=0.04316  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'launch_angle_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:20:17]   forward  n=6 rmse=0.04321  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'launch_angle_mean', 'swing_path_tilt_mean', 'swing_length_mean')
+[2026-09-11 21:20:17]   forward  n=7 rmse=0.04327  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'launch_angle_mean', 'swing_path_tilt_mean', 'swing_length_mean', 'stand_L_mean')
+[2026-09-11 21:20:17]   forward  n=8 rmse=0.04336  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'launch_angle_mean', 'swing_path_tilt_mean', 'swing_length_mean', 'stand_L_mean', 'spray_angle_mean')
+[2026-09-11 21:20:17]   forward  n=9 rmse=0.04353  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'launch_angle_mean', 'swing_path_tilt_mean', 'swing_length_mean', 'stand_L_mean', 'spray_angle_mean', 'attack_angle_mean')
+[2026-09-11 21:20:17] === catboost: backward elimination ===
+[2026-09-11 21:20:34]   backward n=9 rmse=0.04340  ('launch_speed_mean', 'launch_angle_mean', 'spray_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_angle_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:20:34]   backward n=8 rmse=0.04336  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_angle_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:20:34]   backward n=7 rmse=0.04332  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_angle_mean', 'attack_direction_mean')
+[2026-09-11 21:20:34]   backward n=6 rmse=0.04317  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'swing_length_mean', 'attack_angle_mean', 'attack_direction_mean')
+[2026-09-11 21:20:34]   backward n=5 rmse=0.04314  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'swing_length_mean', 'attack_direction_mean')
+[2026-09-11 21:20:34]   backward n=4 rmse=0.04299  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:20:34]   backward n=3 rmse=0.04310  ('launch_speed_mean', 'bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:20:34]   backward n=2 rmse=0.04364  ('bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:20:34]   backward n=1 rmse=0.04588  ('bat_speed_mean',)
+[2026-09-11 21:20:34] catboost: SELECTED (forward) ['bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'launch_angle_mean'] cv_rmse=0.04290 [31.6s]
+[2026-09-11 21:20:34] catboost: TEST {'test_rmse': 0.04246683138219478, 'test_mae': 0.033648199644556405, 'test_r2': 0.38484988780333707, 'test_corr': 0.6247798519046427}
+[2026-09-11 21:20:34] === random_forest: forward selection ===
+[2026-09-11 21:21:38]   forward  n=0 rmse=0.05566  ()
+[2026-09-11 21:21:38]   forward  n=1 rmse=0.04656  ('bat_speed_mean',)
+[2026-09-11 21:21:38]   forward  n=2 rmse=0.04464  ('bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:21:38]   forward  n=3 rmse=0.04412  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean')
+[2026-09-11 21:21:38]   forward  n=4 rmse=0.04404  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'launch_angle_mean')
+[2026-09-11 21:21:38]   forward  n=5 rmse=0.04400  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'launch_angle_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:21:38]   forward  n=6 rmse=0.04402  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'launch_angle_mean', 'swing_path_tilt_mean', 'stand_L_mean')
+[2026-09-11 21:21:38]   forward  n=7 rmse=0.04405  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'launch_angle_mean', 'swing_path_tilt_mean', 'stand_L_mean', 'swing_length_mean')
+[2026-09-11 21:21:38]   forward  n=8 rmse=0.04408  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'launch_angle_mean', 'swing_path_tilt_mean', 'stand_L_mean', 'swing_length_mean', 'spray_angle_mean')
+[2026-09-11 21:21:38]   forward  n=9 rmse=0.04416  ('bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'launch_angle_mean', 'swing_path_tilt_mean', 'stand_L_mean', 'swing_length_mean', 'spray_angle_mean', 'attack_angle_mean')
+[2026-09-11 21:21:38] === random_forest: backward elimination ===
+[2026-09-11 21:22:45]   backward n=9 rmse=0.04416  ('launch_speed_mean', 'launch_angle_mean', 'spray_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_angle_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:22:45]   backward n=8 rmse=0.04408  ('launch_speed_mean', 'launch_angle_mean', 'spray_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:22:45]   backward n=7 rmse=0.04405  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:22:45]   backward n=6 rmse=0.04402  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:22:45]   backward n=5 rmse=0.04400  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:22:45]   backward n=4 rmse=0.04404  ('launch_speed_mean', 'launch_angle_mean', 'bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:22:45]   backward n=3 rmse=0.04412  ('launch_speed_mean', 'bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:22:45]   backward n=2 rmse=0.04464  ('bat_speed_mean', 'attack_direction_mean')
+[2026-09-11 21:22:45]   backward n=1 rmse=0.04656  ('bat_speed_mean',)
+[2026-09-11 21:22:45] random_forest: SELECTED (forward) ['bat_speed_mean', 'attack_direction_mean', 'launch_speed_mean', 'launch_angle_mean', 'swing_path_tilt_mean'] cv_rmse=0.04400 [131.1s]
+[2026-09-11 21:22:45] random_forest: TEST {'test_rmse': 0.04255566007516359, 'test_mae': 0.03393810631815494, 'test_r2': 0.3822737535566564, 'test_corr': 0.6240402176828559}
+[2026-09-11 21:22:45] === neural_net: forward selection ===
+[2026-09-11 21:24:07]   forward  n=0 rmse=0.05566  ()
+[2026-09-11 21:24:07]   forward  n=1 rmse=0.04988  ('launch_speed_mean',)
+[2026-09-11 21:24:07]   forward  n=2 rmse=0.07507  ('launch_speed_mean', 'bat_speed_mean')
+[2026-09-11 21:24:07]   forward  n=3 rmse=0.06275  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean')
+[2026-09-11 21:24:07]   forward  n=4 rmse=0.07128  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean', 'spray_angle_mean')
+[2026-09-11 21:24:07]   forward  n=5 rmse=0.09879  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean', 'spray_angle_mean', 'attack_angle_mean')
+[2026-09-11 21:24:07]   forward  n=6 rmse=0.14619  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean', 'spray_angle_mean', 'attack_angle_mean', 'swing_length_mean')
+[2026-09-11 21:24:07]   forward  n=7 rmse=0.13891  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean', 'spray_angle_mean', 'attack_angle_mean', 'swing_length_mean', 'attack_direction_mean')
+[2026-09-11 21:24:07]   forward  n=8 rmse=0.11331  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean', 'spray_angle_mean', 'attack_angle_mean', 'swing_length_mean', 'attack_direction_mean', 'launch_angle_mean')
+[2026-09-11 21:24:07]   forward  n=9 rmse=0.07627  ('launch_speed_mean', 'bat_speed_mean', 'stand_L_mean', 'spray_angle_mean', 'attack_angle_mean', 'swing_length_mean', 'attack_direction_mean', 'launch_angle_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:24:07] === neural_net: backward elimination ===
+[2026-09-11 21:25:33]   backward n=9 rmse=0.08041  ('launch_speed_mean', 'launch_angle_mean', 'spray_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_angle_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:25:33]   backward n=8 rmse=0.10188  ('launch_speed_mean', 'launch_angle_mean', 'spray_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:25:33]   backward n=7 rmse=0.12269  ('launch_speed_mean', 'spray_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:25:33]   backward n=6 rmse=0.11674  ('spray_angle_mean', 'bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:25:33]   backward n=5 rmse=0.08207  ('bat_speed_mean', 'stand_L_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:25:33]   backward n=4 rmse=0.07005  ('bat_speed_mean', 'swing_length_mean', 'attack_direction_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:25:33]   backward n=3 rmse=0.07688  ('bat_speed_mean', 'swing_length_mean', 'swing_path_tilt_mean')
+[2026-09-11 21:25:33]   backward n=2 rmse=0.08866  ('bat_speed_mean', 'swing_length_mean')
+[2026-09-11 21:25:33]   backward n=1 rmse=0.05329  ('bat_speed_mean',)
+[2026-09-11 21:25:33] neural_net: SELECTED (forward) ['launch_speed_mean'] cv_rmse=0.04988 [167.6s]
+[2026-09-11 21:25:34] neural_net: TEST {'test_rmse': 0.04757779028441165, 'test_mae': 0.03742546419394803, 'test_r2': 0.22787088770993646, 'test_corr': 0.5124000402150193}
+[2026-09-11 21:25:34] === FINAL COMPARISON (test RMSE predicting NEXT season's actual wOBAcon, lower is better) ===
+[2026-09-11 21:25:34]   xgboost                      rmse=0.04214 mae=0.03359 r2=0.39419 corr=0.63520 n_feat=4
+[2026-09-11 21:25:34]   catboost                     rmse=0.04247 mae=0.03365 r2=0.38485 corr=0.62478 n_feat=4
+[2026-09-11 21:25:34]   random_forest                rmse=0.04256 mae=0.03394 r2=0.38227 corr=0.62404 n_feat=5
+[2026-09-11 21:25:34]   lightgbm                     rmse=0.04289 mae=0.03408 r2=0.37240 corr=0.61740 n_feat=5
+[2026-09-11 21:25:34]   elasticnet                   rmse=0.04348 mae=0.03540 r2=0.35528 corr=0.60168 n_feat=5
+[2026-09-11 21:25:34]   lasso                        rmse=0.04348 mae=0.03539 r2=0.35524 corr=0.60173 n_feat=5
+[2026-09-11 21:25:34]   ridge                        rmse=0.04354 mae=0.03544 r2=0.35344 corr=0.60185 n_feat=5
+[2026-09-11 21:25:34]   linear_regression            rmse=0.04357 mae=0.03544 r2=0.35256 corr=0.60210 n_feat=5
+[2026-09-11 21:25:34]   neural_net                   rmse=0.04758 mae=0.03743 r2=0.22787 corr=0.51240 n_feat=1
+[2026-09-11 21:25:34]   statcast_xwobacon_naive      rmse=0.04767 mae=0.03856 r2=0.22487 corr=0.59548 n_feat=1
+[2026-09-11 21:25:34]   custom_explanatory_naive     rmse=0.05033 mae=0.04022 r2=0.13602 corr=0.55741 n_feat=1
+[2026-09-11 21:25:34] DONE.
