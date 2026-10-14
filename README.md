@@ -155,9 +155,3 @@ Best params: `n_estimators=578, max_depth=4, learning_rate=0.032, subsample=0.60
 - **Part 1 uses a random split**, so it measures fit rather than out-of-season generalization. Part 2 addresses that directly with a temporal split.
 - **Uneven tuning.** In Part 1, three models were tuned; in Part 2, only XGBoost. Other rankings might move with equal tuning effort.
 - Part 2's tuned XGBoost feature set (with `launch_angle` in place of stepwise's pick, `stand`) was specified manually, not chosen by stepwise selection.
-
----
-
-## License
-
-[MIT](LICENSE)
